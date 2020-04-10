@@ -2,8 +2,8 @@ import pygame
 
 pygame.init()
 
-width, height = 600, 400
-win = pygame.display.set_mode((width, height))
+win_width, win_height = 600, 400
+win = pygame.display.set_mode((win_width, win_height))
 win_caption = pygame.display.set_caption("test1")
 
 running = True
