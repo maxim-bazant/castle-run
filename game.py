@@ -7,7 +7,7 @@ class Background:
     def __init__(self):
         self.x = 0
         self.y = 0
-        self.image = pygame.image.load("images/Background.png")
+        self.image = pygame.image.load("images/bckgrnd.png")
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
 
