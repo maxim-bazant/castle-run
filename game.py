@@ -1,3 +1,5 @@
+#  tutorial 1 - basic pygame info
+
 import pygame
 
 pygame.init()
