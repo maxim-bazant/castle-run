@@ -17,6 +17,7 @@ clock = pygame.time.Clock()
 FPS = 30
 
 
+# layer class
 class Layer(object):
 
     def __init__(self):
@@ -25,21 +26,22 @@ class Layer(object):
         self.image = pygame.image.load("images/layer.png")
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
+        self.vel = 3
 
     def show_me(self):
         win.blit(self.image, (self.x, self.y))
 
     @staticmethod
     def layer_scrolling(l_1, l_2):
-        l_1.x += -3
-        l_2.x += -3
+        l_1.x -= Layer().vel
+        l_2.x -= Layer().vel
 
         l_1.show_me()
         l_2.show_me()
 
         if l_1.x < -2 * l_1.width + win_width:
             l_1.x = win_width
-        if l_2.x < -2 * l_1.width + win_width:
+        if l_2.x < -2 * l_2.width + win_width:
             l_2.x = win_width
 
 
