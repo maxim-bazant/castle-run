@@ -1,4 +1,4 @@
-#  tutorial 2 - background scrolling
+#  tutorial 3 - background scrolling
 
 import pygame
 pygame.init()
