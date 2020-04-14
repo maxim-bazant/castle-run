@@ -16,6 +16,31 @@ clock = pygame.time.Clock()
 FPS = 30
 
 
+# player class
+class Player(object):
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+        self.running = [pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
+                        pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
+                        pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
+
+        self.sliding = [pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
+                        pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
+
+        self.dying = [pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
+                        pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
+
+        self.width = self.running[0].get_rect().width
+        self.height = self.running[0].get_rect().height
+        self.sliding = False
+        self.jumping = False
+        self.walk_count = 0
+
+    def show_move_slide_jump(self):
+        pass
+
+
 # layer class
 class Layer(object):
     def __init__(self, image):
