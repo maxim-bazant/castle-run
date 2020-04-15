@@ -13,14 +13,16 @@ running = True
 
 clock = pygame.time.Clock()
 
-FPS = 30
+FPS = 30  # can go up to 240 FPS
 
 
 # player class
 class Player(object):
     def __init__(self):
+        self.keys = pygame.key.get_pressed()
         self.x = 0
         self.y = 0
+        """ can not load the images, because I do not have any yet
         self.running = [pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
                         pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
                         pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
@@ -29,10 +31,11 @@ class Player(object):
                         pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
 
         self.dying = [pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
-                        pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
+                      pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
 
         self.width = self.running[0].get_rect().width
         self.height = self.running[0].get_rect().height
+        """
         self.sliding = False
         self.jumping = False
         self.walk_count = 0
@@ -65,8 +68,8 @@ class Layer(object):
 
 
 # layer variables
-layer_1 = Layer(pygame.image.load("images/layer.png"))
-layer_2 = Layer(pygame.image.load("images/layer.png"))
+layer_1 = Layer(pygame.image.load("images/layer.png").convert_alpha())
+layer_2 = Layer(pygame.image.load("images/layer.png").convert_alpha())
 
 layer_vel = 5
 layer_2.x = layer_2.width
@@ -77,6 +80,8 @@ background_2 = Layer(pygame.image.load("images/background.png").convert())
 background_vel = 0.5
 background_2.x = background_2.width
 
+# player variables
+player = Player()
 
 # main loop
 while running:
@@ -86,6 +91,8 @@ while running:
 
     Layer.layer_scrolling(background_1, background_2, background_vel)
     Layer.layer_scrolling(layer_1, layer_2, layer_vel)
+    player.show_move_slide_jump()
+
     pygame.display.update()
     clock.tick(FPS)
 
