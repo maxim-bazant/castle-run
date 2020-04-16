@@ -5,7 +5,7 @@ pygame.init()
 
 # init variables
 
-win_width, win_height = 1100, 500
+win_width, win_height = 1650, 700  # Your background width and height
 win = pygame.display.set_mode((win_width, win_height))
 win_caption = pygame.display.set_caption("castle_run")
 
