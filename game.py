@@ -93,7 +93,7 @@ layer_2.x = layer_2.width
 background_1 = Layer(pygame.image.load("layers/background.png").convert())
 background_2 = Layer(pygame.image.load("layers/background.png").convert())
 
-background_vel = 0.5
+background_vel = 1
 background_2.x = background_2.width
 
 # player variables
