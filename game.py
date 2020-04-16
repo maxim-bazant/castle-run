@@ -21,13 +21,15 @@ score = 0
 # player class
 class Player(object):
     def __init__(self):
-        self.keys = pygame.key.get_pressed()
         self.x = 0
         self.y = 0
-        """ can not load the images, because I do not have any yet
-        self.running = [pygame.image.load(""), pygame.image.load(""), pygame.image.load(""),
-                        pygame.image.load(""), pygame.image.load(""), pygame.image.load("")]
-
+        self.running = [pygame.image.load("character_animation/running/01.png"),
+                        pygame.image.load("character_animation/running/02.png"),
+                        pygame.image.load("character_animation/running/03.png"),
+                        pygame.image.load("character_animation/running/04.png"),
+                        pygame.image.load("character_animation/running/05.png"),
+                        pygame.image.load("character_animation/running/06.png")]
+        """
         self.sliding = [pygame.image.load(""), pygame.image.load(""), pygame.image.load(""),
                         pygame.image.load(""), pygame.image.load(""), pygame.image.load(""), 
                         pygame.image.load("")]
@@ -39,16 +41,15 @@ class Player(object):
                       
         self.stay_still = [pygame.image.load(""), pygame.image.load(""), pygame.image.load(""),
                            pygame.image.load("")]
-
+        """
         self.width = self.running[0].get_rect().width
         self.height = self.running[0].get_rect().height
-        """
         self.sliding = False
         self.jumping = False
         self.walk_count = 0
 
     def run(self):
-        pass
+        win.blit(self.running[0], (self.width, win_height - self.height - 25))
 
     def slide(self):
         pass
@@ -108,8 +109,15 @@ while running:
     Layer.layer_scrolling(background_1, background_2, background_vel)
     Layer.layer_scrolling(layer_1, layer_2, layer_vel)
 
+    player.run()
+
     pygame.display.update()
     clock.tick(FPS)
-
+    """
+    if player.walk_count != len(player.running):
+        player.walk_count += 1
+    else:
+        player.walk_count = 0
+    """
 pygame.quit()
 quit()
