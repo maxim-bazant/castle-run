@@ -5,7 +5,7 @@ pygame.init()
 
 # init variables
 
-win_width, win_height = 1650, 700  # Your background width and height
+win_width, win_height = 1300, 700  # important is only win_height
 win = pygame.display.set_mode((win_width, win_height))
 win_caption = pygame.display.set_caption("castle_run")
 
@@ -13,7 +13,7 @@ running = True
 
 clock = pygame.time.Clock()
 
-FPS = 30  # can go up to 240 FPS
+FPS = 40
 
 score = 0
 
@@ -21,9 +21,6 @@ score = 0
 # player class
 class Player(object):
     def __init__(self):
-        self.x = 0
-        self.y = 0
-
         self.running = [pygame.image.load("character_animation/running/01.png").convert_alpha(),
                         pygame.image.load("character_animation/running/02.png").convert_alpha(),
                         pygame.image.load("character_animation/running/03.png").convert_alpha(),
@@ -53,12 +50,14 @@ class Player(object):
 
         self.width = self.running[0].get_rect().width
         self.height = self.running[0].get_rect().height
+        self.x = 0
+        self.y = win_height - self.height - 15
         self.sliding = False
         self.jumping = False
         self.walk_count = 0
 
     def run(self):
-        win.blit(self.running[0], (self.width, win_height - self.height - 25))
+        win.blit(self.running[self.walk_count // 3], (self.x, self.y))
 
     def slide(self):
         pass
@@ -97,13 +96,13 @@ class Layer(object):
 layer_1 = Layer(pygame.image.load("layers/layer.png").convert_alpha())
 layer_2 = Layer(pygame.image.load("layers/layer.png").convert_alpha())
 
-layer_vel = 5
+layer_vel = 7
 layer_2.x = layer_2.width
 # background variables
 background_1 = Layer(pygame.image.load("layers/background.png").convert())
 background_2 = Layer(pygame.image.load("layers/background.png").convert())
 
-background_vel = 1
+background_vel = 2
 background_2.x = background_2.width
 
 # player variables
@@ -115,18 +114,21 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    Layer.layer_scrolling(background_1, background_2, background_vel)
-    Layer.layer_scrolling(layer_1, layer_2, layer_vel)
+    keys = pygame.key.get_pressed()
 
-    player.run()
+    if not keys[pygame.K_ESCAPE]:
+        Layer.layer_scrolling(background_1, background_2, background_vel)
+        Layer.layer_scrolling(layer_1, layer_2, layer_vel)
+        player.run()
 
     pygame.display.update()
     clock.tick(FPS)
-    """
-    if player.walk_count != len(player.running):
-        player.walk_count += 1
-    else:
-        player.walk_count = 0
-    """
+
+    if not player.sliding or not player.jumping:
+        if player.walk_count + 1 < 3 * len(player.running):
+            player.walk_count += 1
+        else:
+            player.walk_count = 0
+
 pygame.quit()
 quit()
