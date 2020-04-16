@@ -15,6 +15,8 @@ clock = pygame.time.Clock()
 
 FPS = 30  # can go up to 240 FPS
 
+score = 0
+
 
 # player class
 class Player(object):
@@ -23,15 +25,20 @@ class Player(object):
         self.x = 0
         self.y = 0
         """ can not load the images, because I do not have any yet
-        self.running = [pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
-                        pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
-                        pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
+        self.running = [pygame.image.load(""), pygame.image.load(""), pygame.image.load(""),
+                        pygame.image.load(""), pygame.image.load(""), pygame.image.load("")]
 
-        self.sliding = [pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
-                        pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
+        self.sliding = [pygame.image.load(""), pygame.image.load(""), pygame.image.load(""),
+                        pygame.image.load(""), pygame.image.load(""), pygame.image.load(""), 
+                        pygame.image.load("")]
+                        
+        self.jumping = pygame.image.load("")
 
-        self.dying = [pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/"),
-                      pygame.image.load("images/"), pygame.image.load("images/"), pygame.image.load("images/")]
+        self.dying = [pygame.image.load(""), pygame.image.load(""), pygame.image.load(""),
+                      pygame.image.load("")]
+                      
+        self.stay_still = [pygame.image.load(""), pygame.image.load(""), pygame.image.load(""),
+                           pygame.image.load("")]
 
         self.width = self.running[0].get_rect().width
         self.height = self.running[0].get_rect().height
@@ -40,7 +47,16 @@ class Player(object):
         self.jumping = False
         self.walk_count = 0
 
-    def show_move_slide_jump(self):
+    def run(self):
+        pass
+
+    def slide(self):
+        pass
+
+    def jump(self):
+        pass
+
+    def die(self):
         pass
 
 
@@ -91,7 +107,6 @@ while running:
 
     Layer.layer_scrolling(background_1, background_2, background_vel)
     Layer.layer_scrolling(layer_1, layer_2, layer_vel)
-    player.show_move_slide_jump()
 
     pygame.display.update()
     clock.tick(FPS)
