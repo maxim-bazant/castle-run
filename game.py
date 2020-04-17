@@ -51,13 +51,13 @@ class Player(object):
                              pygame.transform.scale(pygame.image.load("character_animation/dying/05.png"), (300, 150)),
                              pygame.transform.scale(pygame.image.load("character_animation/dying/06.png"), (300, 150))]
         self.standing_images = [pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150))]
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/02.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/03.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/04.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/05.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/06.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/07.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/08.png"), (300, 150))]
 
         self.width = self.running_images[0].get_rect().width
         self.height = self.running_images[0].get_rect().height
@@ -96,12 +96,7 @@ class Player(object):
 
     def jump(self):
         if self.jumping:
-            if player.jump_count + 1 < 3 * len(player.jumping_images):
-                player.jump_count += 1
-            else:
-                player.jump_count = 0
-
-            win.blit(self.jumping_images[self.jump_count // 3], (self.x, self.y))
+            pass
 
     def die(self):
         if self.dying:
@@ -172,16 +167,20 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    if not player.dying:
+    if not player.dying or not player.standing:
         Layer.layer_scrolling(background_1, background_2, background_vel)
         Layer.layer_scrolling(layer_1, layer_2, layer_vel)
 
         keys = pygame.key.get_pressed()
 
         #  key presses
-        if keys[pygame.K_SPACE]:
+        if keys[pygame.K_r] and not player.jumping:  # press key r to roll
             player.rolling = True
             player.running = False
+
+        if keys[pygame.K_SPACE] and not player.rolling:  # press space to jump, does not work yet
+            player.running = False
+            player.jumping = True
 
         #  character animation
         player.animations_in_action()
