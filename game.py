@@ -1,4 +1,4 @@
-#  tutorial 3 - background scrolling
+#  tutorial 3 - character animation and movement
 
 import pygame
 pygame.init()
