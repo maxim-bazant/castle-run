@@ -21,37 +21,51 @@ score = 0
 # player class
 class Player(object):
     def __init__(self):
-        self.running = [pygame.image.load("character_animation/running/01.png").convert_alpha(),
-                        pygame.image.load("character_animation/running/02.png").convert_alpha(),
-                        pygame.image.load("character_animation/running/03.png").convert_alpha(),
-                        pygame.image.load("character_animation/running/04.png").convert_alpha(),
-                        pygame.image.load("character_animation/running/05.png").convert_alpha(),
-                        pygame.image.load("character_animation/running/06.png").convert_alpha()]
+        self.running = [pygame.transform.scale(pygame.image.load("character_animation/running/01.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/02.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/03.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/04.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/05.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/06.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/07.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/08.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/09.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/running/10.png"), (300, 150)).convert_alpha()]
 
-        self.sliding = [pygame.image.load("character_animation/sliding/01.png").convert_alpha(),
-                        pygame.image.load("character_animation/sliding/02.png").convert_alpha(),
-                        pygame.image.load("character_animation/sliding/03.png").convert_alpha(),
-                        pygame.image.load("character_animation/sliding/04.png").convert_alpha(),
-                        pygame.image.load("character_animation/sliding/05.png").convert_alpha(),
-                        pygame.image.load("character_animation/sliding/06.png").convert_alpha(),
-                        pygame.image.load("character_animation/sliding/07.png").convert_alpha()]
-                        
-        self.jumping = pygame.image.load("character_animation/jumping/01.png").convert_alpha()
+        self.rolling = [pygame.transform.scale(pygame.image.load("character_animation/rolling/01.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/rolling/02.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/rolling/03.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/rolling/04.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/rolling/05.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/rolling/06.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/rolling/07.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/rolling/08.png"), (300, 150)).convert_alpha(),
+                        pygame.transform.scale(pygame.image.load("character_animation/rolling/09.png"), (300, 150)).convert_alpha()]
 
-        self.dying = [pygame.image.load("character_animation/dying/01.png").convert_alpha(),
-                      pygame.image.load("character_animation/dying/02.png").convert_alpha(),
-                      pygame.image.load("character_animation/dying/03.png").convert_alpha(),
-                      pygame.image.load("character_animation/dying/04.png").convert_alpha()]
-                      
-        self.standing = [pygame.image.load("character_animation/standing/01.png").convert_alpha(),
-                         pygame.image.load("character_animation/standing/02.png").convert_alpha(),
-                         pygame.image.load("character_animation/standing/03.png").convert_alpha(),
-                         pygame.image.load("character_animation/standing/04.png").convert_alpha()]
+        self.jumping = [pygame.transform.scale(pygame.image.load("character_animation/jumping/01.png"), (300, 150)),
+                        pygame.transform.scale(pygame.image.load("character_animation/jumping/02.png"), (300, 150)),
+                        pygame.transform.scale(pygame.image.load("character_animation/jumping/03.png"), (300, 150))]
+
+        self.dying = [pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150))]
+
+        self.standing = [pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150))]
 
         self.width = self.running[0].get_rect().width
         self.height = self.running[0].get_rect().height
         self.x = 0
-        self.y = win_height - self.height - 15
+        self.y = win_height - self.height - 35
         self.sliding = False
         self.jumping = False
         self.walk_count = 0
