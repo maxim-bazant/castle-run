@@ -45,11 +45,11 @@ class Player(object):
                                pygame.transform.scale(pygame.image.load("character_animation/jumping/02.png"), (300, 150)),
                                pygame.transform.scale(pygame.image.load("character_animation/jumping/03.png"), (300, 150))]
         self.dying_images = [pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150))]
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/02.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/03.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/04.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/05.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/06.png"), (300, 150))]
         self.standing_images = [pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
                                 pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
                                 pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
@@ -75,46 +75,56 @@ class Player(object):
         self.jump_count = 0
 
     def run(self):
-        if player.run_count + 1 < 3 * len(player.running_images):
-            player.run_count += 1
-        else:
-            player.run_count = 0
+        if self.running:
+            if player.run_count + 1 < 3 * len(player.running_images):
+                player.run_count += 1
+            else:
+                player.run_count = 0
 
-        win.blit(self.running_images[self.run_count // 3], (self.x, self.y))
+            win.blit(self.running_images[self.run_count // 3], (self.x, self.y))
 
     def roll(self):
-        if self.roll_count + 1 < 3 * len(self.rolling_images):
-            self.roll_count += 1
-        else:
-            self.roll_count = 0
-            self.rolling = False
-            self.running = True
+        if self.rolling:
+            if self.roll_count + 1 < 3 * len(self.rolling_images):
+                self.roll_count += 1
+            else:
+                self.roll_count = 0
+                self.rolling = False
+                self.running = True
 
-        win.blit(self.rolling_images[self.roll_count // 3], (self.x, self.y))
+            win.blit(self.rolling_images[self.roll_count // 3], (self.x, self.y))
 
     def jump(self):
-        if player.jump_count + 1 < 3 * len(player.jumping_images):
-            player.jump_count += 1
-        else:
-            player.jump_count = 0
+        if self.jumping:
+            if player.jump_count + 1 < 3 * len(player.jumping_images):
+                player.jump_count += 1
+            else:
+                player.jump_count = 0
 
-        win.blit(self.jumping_images[self.jump_count // 3], (self.x, self.y))
+            win.blit(self.jumping_images[self.jump_count // 3], (self.x, self.y))
 
     def die(self):
-        if player.die_count + 1 < 3 * len(player.dying_images):
-            player.die_count += 1
-        else:
-            player.die_count = 0
+        if self.dying:
+            if player.die_count + 1 < 3 * len(player.dying_images):
+                player.die_count += 1
+            else:
+                player.die_count = 0
 
-        win.blit(self.dying_images[self.die_count // 3], (self.x, self.y))
+            win.blit(self.dying_images[self.die_count // 3], (self.x, self.y))
 
     def stand(self):
-        if player.stand_count + 1 < 3 * len(player.standing_images):
-            player.stand_count += 1
-        else:
-            player.stand_count = 0
+        if self.standing:
+            if player.stand_count + 1 < 3 * len(player.standing_images):
+                player.stand_count += 1
+            else:
+                player.stand_count = 0
 
-        win.blit(self.standing_images[self.stand_count // 3], (self.x, self.y))
+            win.blit(self.standing_images[self.stand_count // 3], (self.x, self.y))
+
+    def animations_in_action(self):
+        self.roll()
+        self.run()
+        self.jump()
 
 
 # layer class
@@ -162,22 +172,19 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    Layer.layer_scrolling(background_1, background_2, background_vel)
-    Layer.layer_scrolling(layer_1, layer_2, layer_vel)
+    if not player.dying:
+        Layer.layer_scrolling(background_1, background_2, background_vel)
+        Layer.layer_scrolling(layer_1, layer_2, layer_vel)
 
-    keys = pygame.key.get_pressed()
+        keys = pygame.key.get_pressed()
 
-    #  key presses
-    if keys[pygame.K_SPACE]:
-        player.rolling = True
-        player.running = False
+        #  key presses
+        if keys[pygame.K_SPACE]:
+            player.rolling = True
+            player.running = False
 
-    #  character animation
-    if player.rolling:
-        player.roll()
-
-    elif player.running:
-        player.run()
+        #  character animation
+        player.animations_in_action()
 
     pygame.display.update()
     clock.tick(FPS)
