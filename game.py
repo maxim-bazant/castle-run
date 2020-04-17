@@ -168,6 +168,8 @@ while running:
             player.roll_count += 1
         else:
             player.roll_count = 0
+            player.rolling = False
+            player.running = True
 
         player.roll()
 
@@ -176,6 +178,8 @@ while running:
             player.run_count += 1
         else:
             player.run_count = 0
+            player.rolling = True
+            player.running = False
 
         player.run()
 
