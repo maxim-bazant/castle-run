@@ -21,65 +21,72 @@ score = 0
 # player class
 class Player(object):
     def __init__(self):
-        self.running = [pygame.transform.scale(pygame.image.load("character_animation/running/01.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/02.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/03.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/04.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/05.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/06.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/07.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/08.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/09.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/running/10.png"), (300, 150)).convert_alpha()]
+        #  character images
+        self.running_images = [pygame.transform.scale(pygame.image.load("character_animation/running/01.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/02.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/03.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/04.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/05.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/06.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/07.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/08.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/09.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/running/10.png"), (300, 150)).convert_alpha()]
+        self.rolling_images = [pygame.transform.scale(pygame.image.load("character_animation/rolling/01.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/rolling/02.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/rolling/03.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/rolling/04.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/rolling/05.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/rolling/06.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/rolling/07.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/rolling/08.png"), (300, 150)).convert_alpha(),
+                               pygame.transform.scale(pygame.image.load("character_animation/rolling/09.png"), (300, 150)).convert_alpha()]
+        self.jumping_images = [pygame.transform.scale(pygame.image.load("character_animation/jumping/01.png"), (300, 150)),
+                               pygame.transform.scale(pygame.image.load("character_animation/jumping/02.png"), (300, 150)),
+                               pygame.transform.scale(pygame.image.load("character_animation/jumping/03.png"), (300, 150))]
+        self.dying_images = [pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
+                             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150))]
+        self.standing_images = [pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
+                                pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150))]
 
-        self.rolling = [pygame.transform.scale(pygame.image.load("character_animation/rolling/01.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/rolling/02.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/rolling/03.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/rolling/04.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/rolling/05.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/rolling/06.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/rolling/07.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/rolling/08.png"), (300, 150)).convert_alpha(),
-                        pygame.transform.scale(pygame.image.load("character_animation/rolling/09.png"), (300, 150)).convert_alpha()]
-
-        self.jumping = [pygame.transform.scale(pygame.image.load("character_animation/jumping/01.png"), (300, 150)),
-                        pygame.transform.scale(pygame.image.load("character_animation/jumping/02.png"), (300, 150)),
-                        pygame.transform.scale(pygame.image.load("character_animation/jumping/03.png"), (300, 150))]
-
-        self.dying = [pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
-                      pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150))]
-
-        self.standing = [pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150)),
-                         pygame.transform.scale(pygame.image.load("character_animation/standing/01.png"), (300, 150))]
-
-        self.width = self.running[0].get_rect().width
-        self.height = self.running[0].get_rect().height
+        self.width = self.running_images[0].get_rect().width
+        self.height = self.running_images[0].get_rect().height
         self.x = 0
         self.y = win_height - self.height - 35
-        self.sliding = False
+        self.rolling = True
         self.jumping = False
-        self.walk_count = 0
+        self.running = False
+        self.standing = False
+        self.dying = False
+        self.run_count = 0
+        self.roll_count = 0
+        self.stand_count = 0
+        self.die_count = 0
+        self.jump_count = 0
 
     def run(self):
-        win.blit(self.running[self.walk_count // 3], (self.x, self.y))
+        win.blit(self.running_images[self.run_count // 3], (self.x, self.y))
 
-    def slide(self):
-        pass
+    def roll(self):
+        win.blit(self.rolling_images[self.roll_count // 3], (self.x, self.y))
 
     def jump(self):
         pass
 
     def die(self):
+        pass
+
+    def stand(self):
         pass
 
 
@@ -128,21 +135,52 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    keys = pygame.key.get_pressed()
+    Layer.layer_scrolling(background_1, background_2, background_vel)
+    Layer.layer_scrolling(layer_1, layer_2, layer_vel)
 
-    if not keys[pygame.K_ESCAPE]:
-        Layer.layer_scrolling(background_1, background_2, background_vel)
-        Layer.layer_scrolling(layer_1, layer_2, layer_vel)
+    #  frame_count and player animation handling
+    if player.jumping:
+        if player.jump_count + 1 < 3 * len(player.jumping_images):
+            player.jump_count += 1
+        else:
+            player.jump_count = 0
+
+        player.jump()
+
+    elif player.dying:
+        if player.die_count + 1 < 3 * len(player.dying_images):
+            player.die_count += 1
+        else:
+            player.die_count = 0
+
+        player.die()
+
+    elif player.standing:
+        if player.stand_count + 1 < 3 * len(player.standing_images):
+            player.stand_count += 1
+        else:
+            player.stand_count = 0
+
+        player.stand()
+
+    elif player.rolling:
+        if player.roll_count + 1 < 3 * len(player.rolling_images):
+            player.roll_count += 1
+        else:
+            player.roll_count = 0
+
+        player.roll()
+
+    elif player.running:
+        if player.run_count + 1 < 3 * len(player.running_images):
+            player.run_count += 1
+        else:
+            player.run_count = 0
+
         player.run()
 
     pygame.display.update()
     clock.tick(FPS)
-
-    if not player.sliding or not player.jumping:
-        if player.walk_count + 1 < 3 * len(player.running):
-            player.walk_count += 1
-        else:
-            player.walk_count = 0
 
 pygame.quit()
 quit()
