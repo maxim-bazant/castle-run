@@ -63,9 +63,9 @@ class Player(object):
         self.height = self.running_images[0].get_rect().height
         self.x = 0
         self.y = win_height - self.height - 35
-        self.rolling = True
+        self.rolling = False
         self.jumping = False
-        self.running = False
+        self.running = True
         self.standing = False
         self.dying = False
         self.run_count = 0
@@ -75,19 +75,46 @@ class Player(object):
         self.jump_count = 0
 
     def run(self):
+        if player.run_count + 1 < 3 * len(player.running_images):
+            player.run_count += 1
+        else:
+            player.run_count = 0
+
         win.blit(self.running_images[self.run_count // 3], (self.x, self.y))
 
     def roll(self):
+        if self.roll_count + 1 < 3 * len(self.rolling_images):
+            self.roll_count += 1
+        else:
+            self.roll_count = 0
+            self.rolling = False
+            self.running = True
+
         win.blit(self.rolling_images[self.roll_count // 3], (self.x, self.y))
 
     def jump(self):
-        pass
+        if player.jump_count + 1 < 3 * len(player.jumping_images):
+            player.jump_count += 1
+        else:
+            player.jump_count = 0
+
+        win.blit(self.jumping_images[self.jump_count // 3], (self.x, self.y))
 
     def die(self):
-        pass
+        if player.die_count + 1 < 3 * len(player.dying_images):
+            player.die_count += 1
+        else:
+            player.die_count = 0
+
+        win.blit(self.dying_images[self.die_count // 3], (self.x, self.y))
 
     def stand(self):
-        pass
+        if player.stand_count + 1 < 3 * len(player.standing_images):
+            player.stand_count += 1
+        else:
+            player.stand_count = 0
+
+        win.blit(self.standing_images[self.stand_count // 3], (self.x, self.y))
 
 
 # layer class
@@ -138,49 +165,18 @@ while running:
     Layer.layer_scrolling(background_1, background_2, background_vel)
     Layer.layer_scrolling(layer_1, layer_2, layer_vel)
 
-    #  frame_count and player animation handling
-    if player.jumping:
-        if player.jump_count + 1 < 3 * len(player.jumping_images):
-            player.jump_count += 1
-        else:
-            player.jump_count = 0
+    keys = pygame.key.get_pressed()
 
-        player.jump()
+    #  key presses
+    if keys[pygame.K_SPACE]:
+        player.rolling = True
+        player.running = False
 
-    elif player.dying:
-        if player.die_count + 1 < 3 * len(player.dying_images):
-            player.die_count += 1
-        else:
-            player.die_count = 0
-
-        player.die()
-
-    elif player.standing:
-        if player.stand_count + 1 < 3 * len(player.standing_images):
-            player.stand_count += 1
-        else:
-            player.stand_count = 0
-
-        player.stand()
-
-    elif player.rolling:
-        if player.roll_count + 1 < 3 * len(player.rolling_images):
-            player.roll_count += 1
-        else:
-            player.roll_count = 0
-            player.rolling = False
-            player.running = True
-
+    #  character animation
+    if player.rolling:
         player.roll()
 
     elif player.running:
-        if player.run_count + 1 < 3 * len(player.running_images):
-            player.run_count += 1
-        else:
-            player.run_count = 0
-            player.rolling = True
-            player.running = False
-
         player.run()
 
     pygame.display.update()
