@@ -100,20 +100,30 @@ class Player(object):
 
     def die(self):
         if self.dying:
-            if player.die_count + 1 < 3 * len(player.dying_images):
-                player.die_count += 1
+            if self.die_count + 1 < 3 * len(self.dying_images):
+                self.die_count += 1
             else:
-                player.die_count = 0
+                self.die_count = 0
+                print("start menu")
+                self.stand()
 
+            Layer.show_layer(background_1)
+            Layer.show_layer(background_2)
+            Layer.show_layer(layer_1)
+            Layer.show_layer(layer_2)
             win.blit(self.dying_images[self.die_count // 3], (self.x, self.y))
 
     def stand(self):
         if self.standing:
-            if player.stand_count + 1 < 3 * len(player.standing_images):
-                player.stand_count += 1
+            if self.stand_count + 1 < 3 * len(self.standing_images):
+                self.stand_count += 1
             else:
-                player.stand_count = 0
+                self.stand_count = 0
 
+            Layer.show_layer(background_1)
+            Layer.show_layer(background_2)
+            Layer.show_layer(layer_1)
+            Layer.show_layer(layer_2)
             win.blit(self.standing_images[self.stand_count // 3], (self.x, self.y))
 
     def animations_in_action(self):
@@ -134,16 +144,16 @@ class Layer(object):
     # I need to create a function that gets the layer to stay in one position for my standing and dying animation
 
     @staticmethod
-    def show_layer(l_1, l_2, l_1_x, l_2_x):   # can delete this because I am going to use win.blit()
-        win.blit(l_1.image, (l_1_x, l_1.y))
-        win.blit(l_2.image, (l_2_x, l_2.y))
+    def show_layer(layer):   # can delete this because I am going to use win.blit()
+        win.blit(layer.image, (layer.x, layer.y))
 
     @staticmethod
     def layer_scrolling(l_1, l_2, l_vel):
         l_1.x -= l_vel
         l_2.x -= l_vel
 
-        Layer.show_layer(l_1, l_2, l_1.x, l_2.x)
+        Layer.show_layer(l_1)
+        Layer.show_layer(l_2)
 
         if l_1.x < -2 * l_1.width + win_width:
             l_1.x = win_width
@@ -173,22 +183,25 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    Layer.layer_scrolling(background_1, background_2, background_vel)
-    Layer.layer_scrolling(layer_1, layer_2, layer_vel)
+    if not (player.dying or player.standing):
+        Layer.layer_scrolling(background_1, background_2, background_vel)
+        Layer.layer_scrolling(layer_1, layer_2, layer_vel)
 
-    # win.blit(background_1.image, (background_1.x, background_1.y))  # bliting layer 1 and background in one position
-    # Layer.show_layer(layer_1, layer_2, layer_1.x, layer_2.x)        # also layer 1 show by bliting
-                                                # going to use this when character will be dead or standing
+        keys = pygame.key.get_pressed()
 
-    keys = pygame.key.get_pressed()
+        #  key presses
+        if keys[pygame.K_s] and not player.jumping:  # press key r to roll
+            player.rolling = True
+            player.running = False
 
-    #  key presses
-    if keys[pygame.K_s] and not player.jumping:  # press key r to roll
-        player.rolling = True
-        player.running = False
+        #  character animation
+        player.animations_in_action()
 
-    #  character animation
-    player.animations_in_action()
+    elif player.standing:
+        player.stand()
+
+    elif player.dying:
+        player.die()
 
     pygame.display.update()
     clock.tick(FPS)
