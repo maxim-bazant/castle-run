@@ -141,8 +141,6 @@ class Layer(object):
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
 
-    # I need to create a function that gets the layer to stay in one position for my standing and dying animation
-
     @staticmethod
     def show_layer(layer):   # can delete this because I am going to use win.blit()
         win.blit(layer.image, (layer.x, layer.y))
@@ -190,7 +188,7 @@ while running:
         keys = pygame.key.get_pressed()
 
         #  key presses
-        if keys[pygame.K_s] and not player.jumping:  # press key r to roll
+        if keys[pygame.K_s] and not player.jumping:  # press key s to roll
             player.rolling = True
             player.running = False
 
