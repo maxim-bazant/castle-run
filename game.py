@@ -96,7 +96,7 @@ class Player(object):
 
     def jump(self):
         if self.jumping:
-            pass
+            pass  # jump
 
     def die(self):
         if self.dying:
@@ -131,13 +131,19 @@ class Layer(object):
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
 
+    # I need to create a function that gets the layer to stay in one position for my standing and dying animation
+
+    @staticmethod
+    def show_layer(l_1, l_2, l_1_x, l_2_x):   # can delete this because I am going to use win.blit()
+        win.blit(l_1.image, (l_1_x, l_1.y))
+        win.blit(l_2.image, (l_2_x, l_2.y))
+
     @staticmethod
     def layer_scrolling(l_1, l_2, l_vel):
         l_1.x -= l_vel
         l_2.x -= l_vel
 
-        win.blit(l_1.image, (l_1.x, l_1.y))
-        win.blit(l_2.image, (l_2.x, l_2.y))
+        Layer.show_layer(l_1, l_2, l_1.x, l_2.x)
 
         if l_1.x < -2 * l_1.width + win_width:
             l_1.x = win_width
@@ -167,23 +173,22 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    if not player.dying or not player.standing:
-        Layer.layer_scrolling(background_1, background_2, background_vel)
-        Layer.layer_scrolling(layer_1, layer_2, layer_vel)
+    Layer.layer_scrolling(background_1, background_2, background_vel)
+    Layer.layer_scrolling(layer_1, layer_2, layer_vel)
 
-        keys = pygame.key.get_pressed()
+    # win.blit(background_1.image, (background_1.x, background_1.y))  # bliting layer 1 and background in one position
+    # Layer.show_layer(layer_1, layer_2, layer_1.x, layer_2.x)        # also layer 1 show by bliting
+                                                # going to use this when character will be dead or standing
 
-        #  key presses
-        if keys[pygame.K_r] and not player.jumping:  # press key r to roll
-            player.rolling = True
-            player.running = False
+    keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_SPACE] and not player.rolling:  # press space to jump, does not work yet
-            player.running = False
-            player.jumping = True
+    #  key presses
+    if keys[pygame.K_s] and not player.jumping:  # press key r to roll
+        player.rolling = True
+        player.running = False
 
-        #  character animation
-        player.animations_in_action()
+    #  character animation
+    player.animations_in_action()
 
     pygame.display.update()
     clock.tick(FPS)
