@@ -192,6 +192,10 @@ while running:
             player.rolling = True
             player.running = False
 
+        if keys[pygame.K_SPACE] and not player.rolling:
+            player.jumping = True
+            player.running = False
+
         #  character animation
         player.animations_in_action()
 
