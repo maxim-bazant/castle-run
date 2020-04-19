@@ -99,18 +99,19 @@ class Player(object):
 
     def die(self):
         if self.dying:
-            if self.die_count + 1 < 3 * len(self.dying_images):
+            if self.die_count + 1 < 4 * len(self.dying_images):
                 self.die_count += 1
             else:
                 self.die_count = 0
-                print("start menu")
-                self.stand()
+                print("show start menu")
+                self.dying = False
+                self.standing = True
 
             Layer.show_layer(background_1)
             Layer.show_layer(background_2)
             Layer.show_layer(layer_1)
             Layer.show_layer(layer_2)
-            win.blit(self.dying_images[self.die_count // 3], (self.x, self.y))
+            win.blit(self.dying_images[self.die_count // 4], (self.x, self.y))
 
     def stand(self):
         if self.standing:
