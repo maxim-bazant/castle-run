@@ -1,4 +1,4 @@
-#  tutorial 3 - character animation and movement
+#  tutorial 4 - obstacles
 
 import pygame
 pygame.init()
