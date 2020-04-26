@@ -172,6 +172,19 @@ class Layer(object):
             l_2.x = win_width
 
 
+# obstacle class
+class Obstacle(object):
+    def __init__(self, image):
+        self.x = 0
+        self.y = 0
+        self.image = image
+        self.width = self.image.get_rect().width
+        self.height = self.image.get_rect().height
+
+    def show_me(self):
+        win.blit(self.image, (self.x, self.y))
+
+
 # layer variables
 layer_1 = Layer(pygame.image.load("layers/layer.png").convert_alpha())
 layer_2 = Layer(pygame.image.load("layers/layer.png").convert_alpha())
