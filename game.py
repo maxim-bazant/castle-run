@@ -1,5 +1,6 @@
 #  tutorial 3 - character animation and movement
 
+import time
 import pygame
 pygame.init()
 
@@ -116,6 +117,7 @@ class Player(object):
                 self.die_count += 1
             else:
                 self.die_count = 0
+                time.sleep(1)
                 print("show start menu")
                 self.dying = False
                 self.standing = True
@@ -202,7 +204,7 @@ while running:
 
         #  key presses
         if keys[pygame.K_s] and not player.jumping:  # press key s to roll
-            player.rolling = True
+            player.dying = True
             player.running = False
 
         if keys[pygame.K_SPACE] and not player.rolling:
