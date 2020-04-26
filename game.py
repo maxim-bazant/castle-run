@@ -26,12 +26,16 @@ class Layer(object):
         self.height = self.image.get_rect().height
 
     @staticmethod
+    def show_layer(layer):   # can delete this because I am going to use win.blit()
+        win.blit(layer.image, (layer.x, layer.y))
+
+    @staticmethod
     def layer_scrolling(l_1, l_2, l_vel):
         l_1.x -= l_vel
         l_2.x -= l_vel
 
-        win.blit(l_1.image, (l_1.x, l_1.y))
-        win.blit(l_2.image, (l_2.x, l_2.y))
+        Layer.show_layer(l_1)
+        Layer.show_layer(l_2)
 
         if l_1.x < -2 * l_1.width + win_width:
             l_1.x = win_width
