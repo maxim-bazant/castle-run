@@ -5,7 +5,7 @@ pygame.init()
 
 # init variables
 
-win_width, win_height = 1100, 500
+win_width, win_height = 1300, 700
 win = pygame.display.set_mode((win_width, win_height))
 win_caption = pygame.display.set_caption("castle_run")
 
@@ -44,14 +44,14 @@ class Layer(object):
 
 
 # layer variables
-layer_1 = Layer(pygame.image.load("images/layer.png"))
-layer_2 = Layer(pygame.image.load("images/layer.png"))
+layer_1 = Layer(pygame.image.load("layers/layer.png"))
+layer_2 = Layer(pygame.image.load("layers/layer.png"))
 
 layer_vel = 5
 layer_2.x = layer_2.width
 # background variables
-background_1 = Layer(pygame.image.load("images/background.png").convert())
-background_2 = Layer(pygame.image.load("images/background.png").convert())
+background_1 = Layer(pygame.image.load("layers/background.png").convert())
+background_2 = Layer(pygame.image.load("layers/background.png").convert())
 
 background_vel = 0.5
 background_2.x = background_2.width
