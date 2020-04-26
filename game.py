@@ -204,7 +204,7 @@ while running:
 
         #  key presses
         if keys[pygame.K_s] and not player.jumping:  # press key s to roll
-            player.dying = True
+            player.rolling = True
             player.running = False
 
         if keys[pygame.K_SPACE] and not player.rolling:
