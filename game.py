@@ -174,15 +174,16 @@ class Layer(object):
 
 # obstacle class
 class Obstacle(object):
-    def __init__(self, image):
+    def __init__(self):
         self.x = 0
         self.y = 0
-        self.image = image
+        self.image = pygame.image.load("images/arrow.png").convert_alpha()
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
+        self.obstacle_list = []
 
     def show_me(self):
-        win.blit(self.image, (self.x, self.y))
+        pass
 
 
 # layer variables
