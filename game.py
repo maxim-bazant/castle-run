@@ -72,6 +72,7 @@ class Player(object):
         self.die_count = 0
         self.jump_count = 7
         self.current_jump_image = self.jumping_images[0]
+        self.hit_box = (self.x, self.y, self.width, self.height)
 
     def run(self):
         if self.running:
@@ -155,7 +156,7 @@ class Layer(object):
         self.height = self.image.get_rect().height
 
     @staticmethod
-    def show_layer(layer):   # can delete this because I am going to use win.blit()
+    def show_layer(layer):
         win.blit(layer.image, (layer.x, layer.y))
 
     @staticmethod
@@ -181,6 +182,7 @@ class Obstacle(object):
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
         self.obstacle_list = []
+        self.hit_box = (self.x, self.y, self.width, self.height)
 
     def show_me(self):
         pass
