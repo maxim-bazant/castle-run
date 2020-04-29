@@ -204,13 +204,15 @@ class Obstacle(object):  # will be spawning by time.set_timer
         self.obstacle_list = []
         self.vel = 9
 
-    def show_and_move_me(self):
-        win.blit(self.image, (self.x, self.y))
-        if self.x > self.vel - self.width:
-            self.x -= self.vel
+    def spawn_me(self):
+        pass
 
-        else:  # means if it is in the end
-            self.x = win_width + self.width
+    def move_me(self):
+        pass
+
+    def show_me(self):
+        for arrow_ in self.obstacle_list:
+            win.blit(arrow_.image, (arrow_.x, arrow_.y))
 
 
 # layer variables
@@ -253,16 +255,8 @@ while running:
             player.jumping = True
             player.running = False
 
-        #  collision checking
-        if player.x + player.width - 100 > arrow.x > 50 and not player.jumping:
-            # the numbers 100 and 50 are borders around player
-            player.dying = True
-
         #  character animation
         player.animations_in_action()
-
-        # arrow movement
-        arrow.show_and_move_me()
 
     elif player.standing:
         player.stand()
