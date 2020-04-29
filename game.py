@@ -72,7 +72,6 @@ class Player(object):
         self.die_count = 0
         self.jump_count = 7
         self.current_jump_image = self.jumping_images[0]
-        self.hit_box = (self.x, self.y, self.width, self.height)
 
     def run(self):
         if self.running:
@@ -176,16 +175,17 @@ class Layer(object):
 # obstacle class
 class Obstacle(object):
     def __init__(self):
-        self.x = 0
-        self.y = 0
-        self.image = pygame.image.load("images/arrow.png").convert_alpha()
+        self.image = pygame.image.load("obstacle/arrow.png").convert_alpha()
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
+        self.x = win_width + self.width
+        self.y = 600
         self.obstacle_list = []
-        self.hit_box = (self.x, self.y, self.width, self.height)
+        self.vel = 10
 
-    def show_me(self):
-        pass
+    def show_and_move_me(self):
+        win.blit(self.image, (self.x, self.y))
+        self.x -= self.vel
 
 
 # layer variables
@@ -201,8 +201,11 @@ background_2 = Layer(pygame.image.load("layers/background.png").convert())
 background_vel = 2
 background_2.x = background_2.width
 
-# player variables
+# player variable
 player = Player()
+
+# obstacle variable
+arrow = Obstacle()
 
 # main loop
 while running:
@@ -227,6 +230,9 @@ while running:
 
         #  character animation
         player.animations_in_action()
+
+        # arrow movement
+        arrow.show_and_move_me()
 
     elif player.standing:
         player.stand()
