@@ -1,6 +1,8 @@
 #  tutorial 4 - obstacles
 
 import pygame
+import time
+
 pygame.init()
 
 # init variables
@@ -13,7 +15,7 @@ running = True
 
 clock = pygame.time.Clock()
 
-FPS = 30
+FPS = 50
 
 score = 0
 
@@ -78,6 +80,7 @@ class Player(object):
         ]
 
         self.width = self.running_images[0].get_rect().width
+        print(self.width)
         self.height = self.running_images[0].get_rect().height
         self.x = 0
         self.y = win_height - self.height - 35
@@ -136,6 +139,7 @@ class Player(object):
                 self.die_count += 1
             else:
                 self.die_count = 0
+                time.sleep(1)
                 print("show start menu")
                 self.dying = False
                 self.standing = True
@@ -148,7 +152,7 @@ class Player(object):
 
     def stand(self):
         if self.standing:
-            if self.stand_count + 1 < 3 * len(self.standing_images):
+            if self.stand_count + 1 < 4 * len(self.standing_images):
                 self.stand_count += 1
             else:
                 self.stand_count = 0
@@ -157,7 +161,7 @@ class Player(object):
             Layer.show_layer(background_2)
             Layer.show_layer(layer_1)
             Layer.show_layer(layer_2)
-            win.blit(self.standing_images[self.stand_count // 3], (self.x, self.y))
+            win.blit(self.standing_images[self.stand_count // 4], (self.x, self.y))
 
     def animations_in_action(self):
         self.roll()
@@ -193,7 +197,7 @@ class Layer(object):
 
 
 # obstacle class
-class Obstacle(object):
+class Obstacle(object):  # will be spawning by time.set_timer
     def __init__(self):
         self.image = pygame.image.load("obstacle/arrow.png").convert_alpha()
         self.width = self.image.get_rect().width
@@ -248,9 +252,14 @@ while running:
             player.rolling = True
             player.running = False
 
-        if keys[pygame.K_SPACE] and not player.rolling:
+        if keys[pygame.K_SPACE] and not player.rolling:  # press space to jump
             player.jumping = True
             player.running = False
+
+        #  collision checking
+        if player.x + player.width - 100 > arrow.x > 50 and not player.jumping:
+            # the numbers 100 and 50 are borders around player
+            player.dying = True
 
         #  character animation
         player.animations_in_action()
