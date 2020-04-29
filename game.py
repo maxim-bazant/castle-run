@@ -80,7 +80,6 @@ class Player(object):
         ]
 
         self.width = self.running_images[0].get_rect().width
-        print(self.width)
         self.height = self.running_images[0].get_rect().height
         self.x = 0
         self.y = win_height - self.height - 35
@@ -144,10 +143,10 @@ class Player(object):
                 self.dying = False
                 self.standing = True
 
-            Layer.show_layer(background_1)
-            Layer.show_layer(background_2)
-            Layer.show_layer(layer_1)
-            Layer.show_layer(layer_2)
+            Layer.show_layer(background_1, background_1.x, background_1.y)
+            Layer.show_layer(background_2, background_2.x, background_2.y)
+            Layer.show_layer(layer_1, layer_1.x, layer_1.y)
+            Layer.show_layer(layer_2, layer_2.x, layer_2.y)
             win.blit(self.dying_images[self.die_count // 4], (self.x, self.y))
 
     def stand(self):
@@ -157,10 +156,8 @@ class Player(object):
             else:
                 self.stand_count = 0
 
-            Layer.show_layer(background_1)
-            Layer.show_layer(background_2)
-            Layer.show_layer(layer_1)
-            Layer.show_layer(layer_2)
+            Layer.show_layer(background_1, 0, 0)
+            Layer.show_layer(layer_1, 0, 0)
             win.blit(self.standing_images[self.stand_count // 4], (self.x, self.y))
 
     def animations_in_action(self):
@@ -179,16 +176,16 @@ class Layer(object):
         self.height = self.image.get_rect().height
 
     @staticmethod
-    def show_layer(layer):
-        win.blit(layer.image, (layer.x, layer.y))
+    def show_layer(layer, layer_x, layer_y):
+        win.blit(layer.image, (layer_x, layer_y))
 
     @staticmethod
     def layer_scrolling(l_1, l_2, l_vel):
         l_1.x -= l_vel
         l_2.x -= l_vel
 
-        Layer.show_layer(l_1)
-        Layer.show_layer(l_2)
+        Layer.show_layer(l_1, l_1.x, l_1.y)
+        Layer.show_layer(l_2, l_2.x, l_2.y)
 
         if l_1.x < -2 * l_1.width + win_width:
             l_1.x = win_width
