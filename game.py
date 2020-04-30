@@ -2,6 +2,7 @@
 
 import pygame
 import time
+import random
 
 pygame.init()
 
@@ -92,7 +93,7 @@ class Player(object):
         self.roll_count = 0
         self.stand_count = 0
         self.die_count = 0
-        self.jump_count = 7
+        self.jump_count = 6.5
         self.current_jump_image = self.jumping_images[0]
 
     def run(self):
@@ -117,7 +118,7 @@ class Player(object):
 
     def jump(self):
         if self.jumping:
-            if self.jump_count >= -7:
+            if self.jump_count >= -6.5:
                 self.current_jump_image = self.jumping_images[0]
                 neg = 1
                 if self.jump_count < 0:
@@ -126,7 +127,7 @@ class Player(object):
                 self.y -= (self.jump_count ** 2) * 0.5 * neg
                 self.jump_count -= 0.5
             else:
-                self.jump_count = 7
+                self.jump_count = 6.5
                 self.jumping = False
                 self.running = True
 
@@ -199,20 +200,20 @@ class Obstacle(object):  # will be spawning by time.set_timer
         self.image = pygame.image.load("obstacle/arrow.png").convert_alpha()
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
-        self.x = win_width + self.width
+        self.x = win_width + self.width  # on the right of the window
         self.y = 600
         self.obstacle_list = []
         self.vel = 9
+        self.show_count = 0
 
-    def spawn_me(self):
+    def add_to_list(self):
+        pass
+
+    def show_me(self):
         pass
 
     def move_me(self):
         pass
-
-    def show_me(self):
-        for arrow_ in self.obstacle_list:
-            win.blit(arrow_.image, (arrow_.x, arrow_.y))
 
 
 # layer variables
@@ -257,6 +258,9 @@ while running:
 
         #  character animation
         player.animations_in_action()
+
+        # arrow animation
+        arrow.show_me()
 
     elif player.standing:
         player.stand()
