@@ -93,7 +93,7 @@ class Player(object):
         self.roll_count = 0
         self.stand_count = 0
         self.die_count = 0
-        self.jump_count = 6.5
+        self.jump_count = 7
         self.current_jump_image = self.jumping_images[0]
 
     def run(self):
@@ -118,7 +118,7 @@ class Player(object):
 
     def jump(self):
         if self.jumping:
-            if self.jump_count >= -6.5:
+            if self.jump_count >= -7:
                 self.current_jump_image = self.jumping_images[0]
                 neg = 1
                 if self.jump_count < 0:
@@ -127,7 +127,7 @@ class Player(object):
                 self.y -= (self.jump_count ** 2) * 0.5 * neg
                 self.jump_count -= 0.5
             else:
-                self.jump_count = 6.5
+                self.jump_count = 7
                 self.jumping = False
                 self.running = True
 
