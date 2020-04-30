@@ -207,10 +207,20 @@ class Obstacle(object):  # will be spawning by time.set_timer
         self.show_count = 0
 
     def add_to_list(self):
-        pass
+        if len(self.obstacle_list) < 3:  # there will be 4
+            self.obstacle_list.append(Obstacle())
+
+    def remove_list(self):
+        self.obstacle_list.pop(0)
 
     def show_me(self):
-        pass
+        if self.show_count < 500:
+            self.show_count += 1
+        else:
+            self.show_count = 0
+
+        if self.show_count // 50 == 0:
+            pass
 
     def move_me(self):
         pass
