@@ -1,4 +1,4 @@
-#  tutorial 4 - obstacles
+#  tutorial 4 - obstacles and collision
 
 import pygame
 import time
@@ -225,13 +225,10 @@ class Obstacle(object):  # will be spawning by time.set_timer
         win.blit(self.image, (self.x, self.y))
 
     def move_obstacle(self):
-        global score
         if self.x > 0 - self.width:
             self.x -= self.vel
         else:
             self.random_set = False
-            score += 1
-            print(score)
             self.x = win_width + self.width
 
         self.show_obstacle()
