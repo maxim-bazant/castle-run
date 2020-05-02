@@ -93,7 +93,7 @@ class Player(object):
         self.roll_count = 0
         self.stand_count = 0
         self.die_count = 0
-        self.jump_count = 7
+        self.jump_count = 6.5
         self.current_jump_image = self.jumping_images[0]
 
     def run(self):
@@ -118,7 +118,7 @@ class Player(object):
 
     def jump(self):
         if self.jumping:
-            if self.jump_count >= -7:
+            if self.jump_count >= -6.5:
                 self.current_jump_image = self.jumping_images[0]
                 neg = 1
                 if self.jump_count < 0:
@@ -127,7 +127,7 @@ class Player(object):
                 self.y -= (self.jump_count ** 2) * 0.5 * neg
                 self.jump_count -= 0.5
             else:
-                self.jump_count = 7
+                self.jump_count = 6.5
                 self.jumping = False
                 self.running = True
 
@@ -135,6 +135,7 @@ class Player(object):
 
     def die(self):
         if self.dying:
+            self.y = win_height - self.height - 35
             if self.die_count + 1 < 4 * len(self.dying_images):
                 self.die_count += 1
             else:
@@ -197,33 +198,40 @@ class Layer(object):
 # obstacle class
 class Obstacle(object):  # will be spawning by time.set_timer
     def __init__(self):
+        self.random_ = random.randint(0, 1)
         self.image = pygame.image.load("obstacle/arrow.png").convert_alpha()
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
         self.x = win_width + self.width  # on the right of the window
         self.y = 600
-        self.obstacle_list = []
+        #  self.obstacle_list = []
         self.vel = 9
-        self.show_count = 0
+        #  self.show_count = 0
+        self.random_set = False
+        self.random = 0
 
-    def add_to_list(self):
-        if len(self.obstacle_list) < 3:  # there will be 4
-            self.obstacle_list.append(Obstacle())
-
-    def remove_list(self):
-        self.obstacle_list.pop(0)
-
-    def show_me(self):
-        if self.show_count < 500:
-            self.show_count += 1
-        else:
-            self.show_count = 0
-
-        if self.show_count // 50 == 0:
+    def show_obstacle(self):
+        if self.random_set:
             pass
+        elif not self.random_set:
+            self.random_ = random.randint(0, 1)
+            self.random_set = True
 
-    def move_me(self):
-        pass
+        if self.random_ == 0:
+            self.y = 600  # spawn down
+        elif self.random_ == 1:
+            self.y = 555  # spawn up
+
+        win.blit(self.image, (self.x, self.y))
+
+    def move_obstacle(self):
+        if self.x > 0 - self.width:
+            self.x -= self.vel
+        else:
+            self.random_set = False
+            self.x = win_width + self.width
+
+        self.show_obstacle()
 
 
 # layer variables
@@ -270,7 +278,7 @@ while running:
         player.animations_in_action()
 
         # arrow animation
-        arrow.show_me()
+        arrow.move_obstacle()
 
     elif player.standing:
         player.stand()
