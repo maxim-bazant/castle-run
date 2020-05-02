@@ -1,4 +1,4 @@
-#  tutorial 4 - obstacles and collision
+#  tutorial 5 - score and restart button
 
 import pygame
 import time
