@@ -66,7 +66,12 @@ class Player(object):
             pygame.transform.scale(pygame.image.load("character_animation/dying/01.png"), (300, 150)),
             pygame.transform.scale(pygame.image.load("character_animation/dying/03.png"), (300, 150)),
             pygame.transform.scale(pygame.image.load("character_animation/dying/04.png"), (300, 150)),
-            pygame.transform.scale(pygame.image.load("character_animation/dying/05.png"), (300, 150))
+            pygame.transform.scale(pygame.image.load("character_animation/dying/05.png"), (300, 150)),
+            pygame.transform.scale(pygame.image.load("character_animation/dying/06.png"), (300, 150)),
+            pygame.transform.scale(pygame.image.load("character_animation/dying/07.png"), (300, 150)),
+            pygame.transform.scale(pygame.image.load("character_animation/dying/08.png"), (300, 150)),
+            pygame.transform.scale(pygame.image.load("character_animation/dying/09.png"), (300, 150)),
+            pygame.transform.scale(pygame.image.load("character_animation/dying/10.png"), (300, 150))
         ]
 
         self.standing_images = [
