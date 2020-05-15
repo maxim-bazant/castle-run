@@ -303,8 +303,10 @@ while running:
         if 200 > arrow.x > 50:
             if arrow.y == 600 and not player.jumping:
                 player.dying = True
+                arrow.x = win_width + arrow.width
             elif arrow.y == 555 and not player.rolling:
                 player.dying = True
+                arrow.x = win_width + arrow.width
 
     elif player.dying:
         player.die()
