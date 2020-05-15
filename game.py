@@ -1,4 +1,4 @@
-#  tutorial 5 - score and restart button
+#  tutorial 5 - restart button
 
 import pygame
 import time
@@ -145,8 +145,7 @@ class Player(object):
                 self.die_count += 1
             else:
                 self.die_count = 0
-                time.sleep(1)
-                print("show start menu")
+                time.sleep(1.5)
                 self.dying = False
                 self.standing = True
 
@@ -163,10 +162,15 @@ class Player(object):
             else:
                 self.stand_count = 0
 
-            Layer.show_layer(background_1, 0, 0)
-            Layer.show_layer(layer_1, 0, 0)
+            background_1.x = 0
+            background_2.x = background_1.width
+            layer_1.x = 0
+            layer_2.x = layer_2.width
+            Layer.show_layer(background_1, background_1.x, background_1.y)
+            Layer.show_layer(layer_1, layer_1.x, layer_1.y)
             win.blit(self.standing_images[self.stand_count // 4], (self.x, self.y))
             Button().show_button()
+            Button().is_clicked()
 
     def animations_in_action(self):
         self.roll()
@@ -231,11 +235,14 @@ class Obstacle(object):  # will be spawning by time.set_timer
         win.blit(self.image, (self.x, self.y))
 
     def move_obstacle(self):
+        global score
         if self.x > 0 - self.width:
             self.x -= self.vel
         else:
             self.random_set = False
             self.x = win_width + self.width
+            score += 1
+            print(score)
 
         self.show_obstacle()
 
@@ -251,6 +258,12 @@ class Button(object):
 
     def show_button(self):
         win.blit(self.image, (self.x, self.y))
+
+    def is_clicked(self):
+        if self.x < int(pygame.mouse.get_pos()[0]) < self.x + self.width:
+            if self.y < int(pygame.mouse.get_pos()[1]) < self.y + self.height:
+                if pygame.mouse.get_pressed()[0]:
+                    return True
 
 
 # layer variables
@@ -299,7 +312,7 @@ while running:
         # arrow animation
         arrow.move_obstacle()
 
-        #  collision checking
+        #  collision detection for arrow 1
         if 200 > arrow.x > 50:
             if arrow.y == 600 and not player.jumping:
                 player.dying = True
@@ -310,9 +323,20 @@ while running:
 
     elif player.dying:
         player.die()
+        score = 0
 
     elif player.standing:
         player.stand()
+
+    #  button clicking checking
+    if Button().is_clicked():
+        player.standing = False
+        player.running = True
+        player.y = win_height - player.height - 35
+        player.jumping = False
+        player.rolling = False
+        player.jump_count = 6.5
+        player.roll_count = 0
 
     pygame.display.update()
     clock.tick(FPS)
