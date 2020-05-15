@@ -166,6 +166,7 @@ class Player(object):
             Layer.show_layer(background_1, 0, 0)
             Layer.show_layer(layer_1, 0, 0)
             win.blit(self.standing_images[self.stand_count // 4], (self.x, self.y))
+            Button().show_button()
 
     def animations_in_action(self):
         self.roll()
@@ -239,6 +240,19 @@ class Obstacle(object):  # will be spawning by time.set_timer
         self.show_obstacle()
 
 
+# Button class
+class Button(object):
+    def __init__(self):
+        self.image = pygame.image.load("button/start_button.png").convert_alpha()
+        self.width = self.image.get_rect().width
+        self.height = self.image.get_rect().height
+        self.x = win_width // 2 - self.width // 2
+        self.y = win_height // 2 - self.height // 2 + 50
+
+    def show_button(self):
+        win.blit(self.image, (self.x, self.y))
+
+
 # layer variables
 layer_1 = Layer(pygame.image.load("layers/layer.png").convert_alpha())
 layer_2 = Layer(pygame.image.load("layers/layer.png").convert_alpha())
@@ -264,11 +278,11 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    keys = pygame.key.get_pressed()
+
     if not (player.dying or player.standing):
         Layer.layer_scrolling(background_1, background_2, background_vel)
         Layer.layer_scrolling(layer_1, layer_2, layer_vel)
-
-        keys = pygame.key.get_pressed()
 
         #  key presses
         if keys[pygame.K_s] and not player.jumping:  # press key s to roll
@@ -292,11 +306,11 @@ while running:
             elif arrow.y == 555 and not player.rolling:
                 player.dying = True
 
-    elif player.standing:
-        player.stand()
-
     elif player.dying:
         player.die()
+
+    elif player.standing:
+        player.stand()
 
     pygame.display.update()
     clock.tick(FPS)
