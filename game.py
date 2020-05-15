@@ -1,4 +1,4 @@
-#  tutorial 5 - restart button
+#  tutorial 5 - restart button and game over
 
 import pygame
 import time
