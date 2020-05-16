@@ -20,6 +20,7 @@ running = True
 
 clock = pygame.time.Clock()
 
+start_FPS = 60
 FPS = 60
 
 score = 0
@@ -302,8 +303,12 @@ while running:
         if score == 5 and 550 < arrow_list[0].x < 600:
             arrow2_move = True
 
-        if score == 10:
+        elif score == 10:
             FPS = 90
+
+        elif 10 < score < 50:
+            FPS = start_FPS + score
+            print(FPS)
 
         #  collision detection for arrows
         for arrow in arrow_list:
@@ -318,7 +323,7 @@ while running:
         player.die()
         player.jumping = False
         player.rolling = False
-        player.jump_count = 6.5
+        player.jump_count = 5.25
         player.roll_count = 0
         arrow2_move = False
         arrow_list[0].x = win_width + arrow_list[0].width
