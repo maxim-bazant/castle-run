@@ -1,4 +1,4 @@
-#  tutorial 5 - score and restart button and double arrow
+#  tutorial 5 - restart button and double arrow
 
 import pygame
 import time
@@ -282,7 +282,7 @@ while running:
         if arrow2_move:
             arrow_list[1].move_obstacle()
 
-        if score == 2 and 550 < arrow_list[0].x < 600:
+        if score == 5 and 550 < arrow_list[0].x < 600:
             arrow2_move = True
 
         #  collision detection for arrows
