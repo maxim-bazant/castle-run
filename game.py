@@ -62,8 +62,8 @@ class Player(object):
         self.y = win_height - self.height - 35
         self.rolling = False
         self.jumping = False
-        self.running = True
-        self.standing = False
+        self.running = False
+        self.standing = True
         self.dying = False
         self.run_count = 0
         self.roll_count = 0
@@ -306,9 +306,8 @@ while running:
         elif score == 10:
             FPS = 90
 
-        elif 10 < score < 50:
+        elif 0 < score < 40:
             FPS = start_FPS + score
-            print(FPS)
 
         #  collision detection for arrows
         for arrow in arrow_list:
