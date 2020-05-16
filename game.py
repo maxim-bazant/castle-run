@@ -248,7 +248,10 @@ background_2.x = background_2.width
 player = Player()
 
 # obstacle variable
-arrow = Obstacle()
+#  arrow1 = Obstacle()
+#  arrow2 = Obstacle()
+arrow2_move = False
+arrow_list = [Obstacle(), Obstacle()]
 
 # main loop
 while running:
@@ -275,19 +278,30 @@ while running:
         player.animations_in_action()
 
         # arrow animation
-        arrow.move_obstacle()
+        arrow_list[0].move_obstacle()
+        if arrow2_move:
+            arrow_list[1].move_obstacle()
 
-        #  collision detection for arrow 1
-        if 200 > arrow.x > 50:
-            if arrow.y == 600 and not player.jumping:
-                player.dying = True
-                arrow.x = win_width + arrow.width
-            elif arrow.y == 555 and not player.rolling:
-                player.dying = True
-                arrow.x = win_width + arrow.width
+        if score == 2 and 550 < arrow_list[0].x < 600:
+            arrow2_move = True
+
+        #  collision detection for arrows
+        for arrow in arrow_list:
+            if 200 > arrow.x > 50:
+                if arrow.y == 600 and not player.jumping:
+                    player.dying = True
+                elif arrow.y == 555 and not player.rolling:
+                    player.dying = True
 
     elif player.dying:
         player.die()
+        player.jumping = False
+        player.rolling = False
+        player.jump_count = 6.5
+        player.roll_count = 0
+        arrow2_move = False
+        arrow_list[0].x = win_width + arrow_list[0].width
+        arrow_list[1].x = win_width + arrow_list[1].width
         score = 0
 
     elif player.standing:
@@ -298,10 +312,6 @@ while running:
         player.standing = False
         player.running = True
         player.y = win_height - player.height - 35
-        player.jumping = False
-        player.rolling = False
-        player.jump_count = 6.5
-        player.roll_count = 0
 
     pygame.display.update()
     clock.tick(FPS)
