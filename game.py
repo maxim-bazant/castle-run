@@ -123,6 +123,7 @@ class Player(object):
             Layer.show_layer(background_2, background_2.x, background_2.y)
             Layer.show_layer(layer_1, layer_1.x, layer_1.y)
             Layer.show_layer(layer_2, layer_2.x, layer_2.y)
+            game_over_button.show_button()
             win.blit(self.dying_images[self.die_count // 4], (self.x, self.y))
 
     def stand(self):
@@ -139,8 +140,8 @@ class Player(object):
             Layer.show_layer(background_1, background_1.x, background_1.y)
             Layer.show_layer(layer_1, layer_1.x, layer_1.y)
             win.blit(self.standing_images[self.stand_count // 4], (self.x, self.y))
-            Button().show_button()
-            Button().is_clicked()
+            start_button.show_button()
+            start_button.is_clicked()
 
     def animations_in_action(self):
         self.roll()
@@ -219,8 +220,8 @@ class Obstacle(object):  # will be spawning by time.set_timer
 
 # Button class
 class Button(object):
-    def __init__(self):
-        self.image = pygame.image.load("button/start_button.png").convert_alpha()
+    def __init__(self, image):
+        self.image = image
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
         self.x = win_width // 2 - self.width // 2
@@ -255,6 +256,10 @@ player = Player()
 # obstacle variable
 arrow2_move = False
 arrow_list = [Obstacle(), Obstacle()]
+
+# button variable
+start_button = Button(pygame.image.load("button/start_button.png").convert_alpha())
+game_over_button = Button(pygame.image.load("button/game_over_button.png").convert_alpha())
 
 # main loop
 while running:
@@ -314,7 +319,7 @@ while running:
         player.stand()
 
     #  button clicking checking
-    if Button().is_clicked():
+    if start_button.is_clicked():
         player.standing = False
         player.running = True
         player.y = win_height - player.height - 35
