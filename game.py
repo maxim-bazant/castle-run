@@ -20,7 +20,6 @@ FPS = 50
 
 score = 0
 
-
 # player class
 class Player(object):
     def __init__(self):
