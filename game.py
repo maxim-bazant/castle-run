@@ -114,10 +114,10 @@ class Player(object):
                 self.dying = False
                 self.standing = True
 
-            Layer.show_layer(background_1, background_1.x, background_1.y)
-            Layer.show_layer(background_2, background_2.x, background_2.y)
-            Layer.show_layer(layer_1, layer_1.x, layer_1.y)
-            Layer.show_layer(layer_2, layer_2.x, layer_2.y)
+            Layer.show_layer(background_1)
+            Layer.show_layer(background_2)
+            Layer.show_layer(layer_1)
+            Layer.show_layer(layer_2)
             win.blit(self.dying_images[self.die_count // 4], (self.x, self.y))
 
     def stand(self):
@@ -131,8 +131,8 @@ class Player(object):
             background_2.x = background_1.width
             layer_1.x = 0
             layer_2.x = layer_2.width
-            Layer.show_layer(background_1, background_1.x, background_1.y)
-            Layer.show_layer(layer_1, layer_1.x, layer_1.y)
+            Layer.show_layer(background_1)
+            Layer.show_layer(layer_1)
             win.blit(self.standing_images[self.stand_count // 4], (self.x, self.y))
             Button().show_button()
             Button().is_clicked()
@@ -153,16 +153,16 @@ class Layer(object):
         self.height = self.image.get_rect().height
 
     @classmethod
-    def show_layer(cls, layer, layer_x, layer_y):
-        win.blit(layer.image, (layer_x, layer_y))
+    def show_layer(cls, layer):
+        win.blit(layer.image, (layer.x, layer.y))
 
     @classmethod
     def layer_scrolling(cls, l_1, l_2, l_vel):
         l_1.x -= l_vel
         l_2.x -= l_vel
 
-        Layer.show_layer(l_1, l_1.x, l_1.y)
-        Layer.show_layer(l_2, l_2.x, l_2.y)
+        Layer.show_layer(l_1)
+        Layer.show_layer(l_2)
 
         if l_1.x < -2 * l_1.width + win_width:
             l_1.x = win_width
