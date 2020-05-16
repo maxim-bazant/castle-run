@@ -68,41 +68,41 @@ class Player(object):
         self.roll_count = 0
         self.stand_count = 0
         self.die_count = 0
-        self.jump_count = 6.5
+        self.jump_count = 5.25
         self.current_jump_image = self.jumping_images[0]
 
     def run(self):
         if self.running:
-            if player.run_count + 1 < 3 * len(player.running_images):
+            if player.run_count + 1 < 4 * len(player.running_images):
                 player.run_count += 1
             else:
                 player.run_count = 0
 
-            win.blit(self.running_images[self.run_count // 3], (self.x, self.y))
+            win.blit(self.running_images[self.run_count // 4], (self.x, self.y))
 
     def roll(self):
         if self.rolling:
-            if self.roll_count + 1 < 4 * len(self.rolling_images):
+            if self.roll_count + 1 < 5 * len(self.rolling_images):
                 self.roll_count += 1
             else:
                 self.roll_count = 0
                 self.rolling = False
                 self.running = True
 
-            win.blit(self.rolling_images[self.roll_count // 4], (self.x, self.y))
+            win.blit(self.rolling_images[self.roll_count // 5], (self.x, self.y))
 
     def jump(self):
         if self.jumping:
-            if self.jump_count >= -6.5:
+            if self.jump_count >= -5.25:
                 self.current_jump_image = self.jumping_images[0]
                 neg = 1
                 if self.jump_count < 0:
                     self.current_jump_image = self.jumping_images[1]
                     neg = -1
                 self.y -= (self.jump_count ** 2) * 0.5 * neg
-                self.jump_count -= 0.5
+                self.jump_count -= 0.25
             else:
-                self.jump_count = 6.5
+                self.jump_count = 5.25
                 self.jumping = False
                 self.running = True
 
