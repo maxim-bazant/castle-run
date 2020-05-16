@@ -147,12 +147,12 @@ class Layer(object):
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
 
-    @staticmethod
-    def show_layer(layer, layer_x, layer_y):
+    @classmethod
+    def show_layer(cls, layer, layer_x, layer_y):
         win.blit(layer.image, (layer_x, layer_y))
 
-    @staticmethod
-    def layer_scrolling(l_1, l_2, l_vel):
+    @classmethod
+    def layer_scrolling(cls, l_1, l_2, l_vel):
         l_1.x -= l_vel
         l_2.x -= l_vel
 
