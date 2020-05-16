@@ -4,7 +4,11 @@ import pygame
 import time
 import random
 
+pygame.font.init()
 pygame.init()
+
+font_size = 60
+my_font = pygame.font.SysFont("Comic Sans", font_size)
 
 # init variables
 
@@ -19,6 +23,7 @@ clock = pygame.time.Clock()
 FPS = 50
 
 score = 0
+score_text = None
 
 
 # player class
@@ -262,6 +267,9 @@ while running:
     if not (player.dying or player.standing):
         Layer.layer_scrolling(background_1, background_2, background_vel)
         Layer.layer_scrolling(layer_1, layer_2, layer_vel)
+
+        score_text = my_font.render(f"Your score: {score}", False, (0, 0, 0))
+        win.blit(score_text, (20, 20))
 
         #  key presses
         if keys[pygame.K_s] and not player.jumping:  # press key s to roll
