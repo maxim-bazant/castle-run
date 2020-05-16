@@ -20,7 +20,7 @@ running = True
 
 clock = pygame.time.Clock()
 
-FPS = 50
+FPS = 60
 
 score = 0
 score_text = None
@@ -183,7 +183,7 @@ class Layer(object):
 
 # obstacle class
 class Obstacle(object):  # will be spawning by time.set_timer
-    def __init__(self):
+    def __init__(self, vel):
         self.random_ = random.randint(0, 1)
         self.image = pygame.image.load("obstacle/arrow.png").convert_alpha()
         self.width = self.image.get_rect().width
@@ -191,7 +191,7 @@ class Obstacle(object):  # will be spawning by time.set_timer
         self.x = win_width + self.width  # on the right of the window
         self.y = 600
         #  self.obstacle_list = []
-        self.vel = 9
+        self.vel = vel
         #  self.show_count = 0
         self.random_set = False
         self.random = 0
@@ -210,10 +210,10 @@ class Obstacle(object):  # will be spawning by time.set_timer
 
         win.blit(self.image, (self.x, self.y))
 
-    def move_obstacle(self):
+    def move_obstacle(self, vel):
         global score
         if self.x > 0 - self.width:
-            self.x -= self.vel
+            self.x -= vel
         else:
             self.random_set = False
             self.x = win_width + self.width
@@ -259,8 +259,9 @@ background_2.x = background_2.width
 player = Player()
 
 # obstacle variable
+arrow_vel = 9
 arrow2_move = False
-arrow_list = [Obstacle(), Obstacle()]
+arrow_list = [Obstacle(arrow_vel), Obstacle(arrow_vel)]
 
 # button variable
 start_button = Button(pygame.image.load("button/start_button.png").convert_alpha())
@@ -294,12 +295,15 @@ while running:
         player.animations_in_action()
 
         # arrow animation
-        arrow_list[0].move_obstacle()
+        arrow_list[0].move_obstacle(arrow_vel)
         if arrow2_move:
-            arrow_list[1].move_obstacle()
+            arrow_list[1].move_obstacle(arrow_vel)
 
         if score == 5 and 550 < arrow_list[0].x < 600:
             arrow2_move = True
+
+        if score == 10:
+            FPS = 90
 
         #  collision detection for arrows
         for arrow in arrow_list:
@@ -310,6 +314,7 @@ while running:
                     player.dying = True
 
     elif player.dying:
+        FPS = 60
         player.die()
         player.jumping = False
         player.rolling = False
