@@ -1,4 +1,4 @@
-#  tutorial 5 - restart button and double arrow
+#  tutorial 6 - game over text and showing score
 
 import pygame
 import time
@@ -248,8 +248,6 @@ background_2.x = background_2.width
 player = Player()
 
 # obstacle variable
-#  arrow1 = Obstacle()
-#  arrow2 = Obstacle()
 arrow2_move = False
 arrow_list = [Obstacle(), Obstacle()]
 
