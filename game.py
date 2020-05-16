@@ -1,4 +1,4 @@
-#  tutorial 5 - score and restart button
+#  tutorial 5 - score and restart button and double arrow
 
 import pygame
 import time
