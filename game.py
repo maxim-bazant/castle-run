@@ -109,6 +109,7 @@ class Player(object):
             win.blit(self.current_jump_image, (self.x, self.y))
 
     def die(self):
+        global score_text
         if self.dying:
             self.y = win_height - self.height - 35
             if self.die_count + 1 < 4 * len(self.dying_images):
@@ -124,10 +125,14 @@ class Player(object):
             Layer.show_layer(layer_1, layer_1.x, layer_1.y)
             Layer.show_layer(layer_2, layer_2.x, layer_2.y)
             game_over_button.show_button()
+            score_text = my_font.render(f"Your score was: {score}", True, (0, 0, 0))
+            win.blit(score_text, (20, 20))
             win.blit(self.dying_images[self.die_count // 4], (self.x, self.y))
 
     def stand(self):
+        global score
         if self.standing:
+            score = 0
             if self.stand_count + 1 < 4 * len(self.standing_images):
                 self.stand_count += 1
             else:
@@ -313,7 +318,6 @@ while running:
         arrow2_move = False
         arrow_list[0].x = win_width + arrow_list[0].width
         arrow_list[1].x = win_width + arrow_list[1].width
-        score = 0
 
     elif player.standing:
         player.stand()
