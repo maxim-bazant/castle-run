@@ -219,7 +219,6 @@ class Obstacle(object):  # will be spawning by time.set_timer
             self.random_set = False
             self.x = win_width + self.width
             score += 1
-            print(score)
 
         self.show_obstacle()
 
