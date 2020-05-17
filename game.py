@@ -1,4 +1,4 @@
-#  tutorial 6 - game over text and showing score
+#  tutorial 6 - game over text and showing score and score achievement
 
 import pygame
 import time
