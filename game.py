@@ -270,6 +270,10 @@ arrow_list = [Obstacle(arrow_vel), Obstacle(arrow_vel)]
 start_button = Button(pygame.image.load("button/start_button.png").convert_alpha())
 brighter_start_button = Button(pygame.image.load("button/start_button_brighter.png").convert_alpha())
 game_over_button = Button(pygame.image.load("button/game_over_button.png").convert_alpha())
+music_on_button = Button(pygame.image.load("button/music_on.png").convert_alpha())
+music_off_button = Button(pygame.image.load("button/music_off.png").convert_alpha())
+
+music_on = True
 
 # main loop
 while running:
