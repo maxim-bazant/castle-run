@@ -236,10 +236,10 @@ class Button(object):
         win.blit(self.image, (self.x, self.y))
 
     def is_clicked(self):
-        if self.x < int(pygame.mouse.get_pos()[0]) < self.x + self.width:
-            if self.y < int(pygame.mouse.get_pos()[1]) < self.y + self.height:
-                if pygame.mouse.get_pressed()[0]:
-                    return True
+        if (self.x < int(pygame.mouse.get_pos()[0]) < self.x + self.width
+                and self.y < int(pygame.mouse.get_pos()[1]) < self.y + self.height):
+            if pygame.mouse.get_pressed()[0]:
+                return True
 
 
 # layer variables
