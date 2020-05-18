@@ -191,9 +191,7 @@ class Obstacle(object):  # will be spawning by time.set_timer
         self.height = self.image.get_rect().height
         self.x = win_width + self.width  # on the right of the window
         self.y = 600
-        #  self.obstacle_list = []
         self.vel = vel
-        #  self.show_count = 0
         self.random_set = False
         self.random = 0
 
@@ -301,9 +299,6 @@ while running:
 
         if score == 5 and 550 < arrow_list[0].x < 600:
             arrow2_move = True
-
-        elif score == 10:
-            FPS = 90
 
         elif 0 < score < 40:
             FPS = start_FPS + score
