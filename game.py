@@ -1,4 +1,4 @@
-#  tutorial 7 - music and cursor image change when on the button
+#  tutorial 7 - music
 
 import pygame
 import time
