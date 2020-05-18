@@ -1,4 +1,4 @@
-#  tutorial 6 - game over text and showing score and score achievement
+#  tutorial 7 - music and cursor image change when on the button
 
 import pygame
 import time
