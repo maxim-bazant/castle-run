@@ -134,7 +134,7 @@ class Player(object):
         global score
         if self.standing:
             score = 0
-            if self.stand_count + 1 < 4 * len(self.standing_images):
+            if self.stand_count + 1 < 6 * len(self.standing_images):
                 self.stand_count += 1
             else:
                 self.stand_count = 0
@@ -145,7 +145,7 @@ class Player(object):
             layer_2.x = layer_2.width
             Layer.show_layer(background_1)
             Layer.show_layer(layer_1)
-            win.blit(self.standing_images[self.stand_count // 4], (self.x, self.y))
+            win.blit(self.standing_images[self.stand_count // 6], (self.x, self.y))
             start_button.show_button()
             start_button.is_clicked()
 
@@ -300,6 +300,9 @@ while running:
         if score == 5 and 550 < arrow_list[0].x < 600:
             arrow2_move = True
 
+        elif score == 30:
+            arrow_vel = 11
+
         elif 0 < score < 40:
             FPS = start_FPS + score
 
@@ -312,8 +315,9 @@ while running:
                     player.dying = True
 
     elif player.dying:
-        FPS = 60
+        FPS = start_FPS
         player.die()
+        arrow_vel = 9
         player.jumping = False
         player.rolling = False
         player.jump_count = 5.25
