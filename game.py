@@ -148,8 +148,6 @@ class Player(object):
             Layer.show_layer(background_1)
             Layer.show_layer(layer_1)
             win.blit(self.standing_images[self.stand_count // 6], (self.x, self.y))
-            start_button.show_button()
-            start_button.is_clicked()
 
     def animations_in_action(self):
         self.roll()
@@ -236,10 +234,15 @@ class Button(object):
         win.blit(self.image, (self.x, self.y))
 
     def is_clicked(self):
-        if (self.x < int(pygame.mouse.get_pos()[0]) < self.x + self.width
-                and self.y < int(pygame.mouse.get_pos()[1]) < self.y + self.height):
-            if pygame.mouse.get_pressed()[0]:
-                return True
+        if player.standing:
+            if (self.x < int(pygame.mouse.get_pos()[0]) < self.x + self.width
+                    and self.y < int(pygame.mouse.get_pos()[1]) < self.y + self.height):
+                brighter_start_button.show_button()
+                if pygame.mouse.get_pressed()[0]:
+                    return True
+
+            else:
+                start_button.show_button()
 
 
 # layer variables
@@ -265,6 +268,7 @@ arrow_list = [Obstacle(arrow_vel), Obstacle(arrow_vel)]
 
 # button variable
 start_button = Button(pygame.image.load("button/start_button.png").convert_alpha())
+brighter_start_button = Button(pygame.image.load("button/start_button_brighter.png").convert_alpha())
 game_over_button = Button(pygame.image.load("button/game_over_button.png").convert_alpha())
 
 # main loop
@@ -330,6 +334,7 @@ while running:
 
     elif player.standing:
         player.stand()
+        start_button.is_clicked()
 
     #  button clicking checking
     if start_button.is_clicked():
