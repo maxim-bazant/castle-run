@@ -7,6 +7,8 @@ import random
 pygame.font.init()
 pygame.init()
 
+pygame.mouse.set_cursor(*pygame.cursors.arrow)
+
 font_size = 60
 my_font = pygame.font.SysFont("Comic Sans", font_size)
 
@@ -300,10 +302,10 @@ while running:
         if score == 5 and 550 < arrow_list[0].x < 600:
             arrow2_move = True
 
-        elif score == 30:
-            arrow_vel = 11
+        elif score == 35:
+            arrow_vel = 10
 
-        elif 0 < score < 40:
+        elif 0 < score < 30:
             FPS = start_FPS + score
 
         #  collision detection for arrows
