@@ -225,12 +225,13 @@ class Obstacle(object):  # will be spawning by time.set_timer
 
 # Button class
 class Button(object):
-    def __init__(self, image, x, y):
+    def __init__(self, image, x, y, button_interaction=False):
         self.image = image
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
         self.x = x
         self.y = y
+        self.button_interaction = button_interaction
 
     def show_button(self):
         win.blit(self.image, (self.x, self.y))
@@ -239,7 +240,8 @@ class Button(object):
         if player.standing:
             if (self.x < int(pygame.mouse.get_pos()[0]) < self.x + self.width
                     and self.y < int(pygame.mouse.get_pos()[1]) < self.y + self.height):
-                brighter_start_button.show_button()
+                if self.button_interaction:
+                    brighter_start_button.show_button()
                 if pygame.mouse.get_pressed()[0]:
                     return True
 
@@ -273,15 +275,39 @@ start_button_x, start_button_y = win_width // 2 - 235 - 20, win_height // 2 - 65
 game_over_button_x, game_over_button_y = win_width // 2 - 175 - 20, win_height // 2 - 130 - 20
 music_button_x, music_button_y = win_width - 60 - 20, win_height - 60 - 20
 
-start_button = Button(pygame.image.load("button/start_button.png").convert_alpha(), start_button_x, start_button_y)
-brighter_start_button = Button(pygame.image.load("button/start_button_brighter.png").convert_alpha(), start_button_x, start_button_y)
-game_over_button = Button(pygame.image.load("button/game_over_button.png").convert_alpha(), game_over_button_x, game_over_button_y)
-music_on_button = Button(pygame.image.load("button/music_on.png").convert_alpha(), music_button_x, music_button_y)
-music_off_button = Button(pygame.image.load("button/music_off.png").convert_alpha(), music_button_x, music_button_y)
+start_button = Button(pygame.image.load("button/start_button.png").convert_alpha(),
+                      start_button_x, start_button_y, True)
+brighter_start_button = Button(pygame.image.load("button/start_button_brighter.png").convert_alpha(),
+                               start_button_x, start_button_y)
+game_over_button = Button(pygame.image.load("button/game_over_button.png").convert_alpha(),
+                          game_over_button_x, game_over_button_y)
+music_on_button = Button(pygame.image.load("button/music_on.png").convert_alpha(),
+                         music_button_x, music_button_y)
+music_off_button = Button(pygame.image.load("button/music_off.png").convert_alpha(),
+                          music_button_x, music_button_y)
 
 music_on = True
 
 button_down = False
+
+
+def music_play_and_stop():
+    global music_on, button_down
+    if pygame.mouse.get_pressed()[0] and not button_down and (music_on_button.is_clicked() or music_off_button.is_clicked()):
+        music_on = not music_on
+        button_down = True
+
+    elif not pygame.mouse.get_pressed()[0]:  # this is handling the single button press
+        button_down = False
+
+    if music_on:
+        pygame.mixer.music.unpause()
+        music_on_button.show_button()
+
+    else:
+        pygame.mixer.music.pause()
+        music_off_button.show_button()
+
 
 # main loop
 while running:
@@ -354,20 +380,7 @@ while running:
         player.running = True
         player.y = win_height - player.height - 35
 
-    if pygame.mouse.get_pressed()[0] and not button_down:
-        music_on = not music_on
-        button_down = True
-
-    elif not pygame.mouse.get_pressed()[0]:  # this is handling the single button press
-        button_down = False
-
-    if music_on:
-        pygame.mixer.music.unpause()
-        music_on_button.show_button()
-
-    else:
-        pygame.mixer.music.pause()
-        music_off_button.show_button()
+    music_play_and_stop()
 
     pygame.display.update()
     clock.tick(FPS)
