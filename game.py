@@ -1,4 +1,4 @@
-#  tutorial 7 - music and sound effects
+#  tutorial 7 - music buttons, music pause and unpause
 
 import pygame
 import time
@@ -149,6 +149,7 @@ class Player(object):
             layer_2.x = layer_2.width
             Layer.show_layer(background_1)
             Layer.show_layer(layer_1)
+            start_button.is_clicked()
             win.blit(self.standing_images[self.stand_count // 6], (self.x, self.y))
 
     def animations_in_action(self):
@@ -237,16 +238,15 @@ class Button(object):
         win.blit(self.image, (self.x, self.y))
 
     def is_clicked(self):
-        if player.standing:
-            if (self.x < int(pygame.mouse.get_pos()[0]) < self.x + self.width
-                    and self.y < int(pygame.mouse.get_pos()[1]) < self.y + self.height):
-                if self.button_interaction:
-                    brighter_start_button.show_button()
-                if pygame.mouse.get_pressed()[0]:
-                    return True
+        if (self.x < int(pygame.mouse.get_pos()[0]) < self.x + self.width
+                and self.y < int(pygame.mouse.get_pos()[1]) < self.y + self.height):
+            if self.button_interaction and player.standing:
+                brighter_start_button.show_button()
+            if pygame.mouse.get_pressed()[0]:
+                return True
 
-            else:
-                start_button.show_button()
+        elif player.standing:
+            start_button.show_button()
 
 
 # layer variables
@@ -372,7 +372,6 @@ while running:
 
     elif player.standing:
         player.stand()
-        start_button.is_clicked()
 
     #  button clicking checking
     if start_button.is_clicked():
