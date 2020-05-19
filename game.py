@@ -30,6 +30,7 @@ score_text = None
 
 jump_sound = pygame.mixer.Sound("music/jump_sound.wav")
 play_jump_sound = True
+jump_sound.set_volume(0.2)
 hit_sound = pygame.mixer.Sound("music/hit_sound.wav")
 
 bg_music = pygame.mixer.music.load("music/music.mp3")
@@ -105,9 +106,10 @@ class Player(object):
     def jump(self):
         global play_jump_sound
         if self.jumping:
-            if play_jump_sound:
-                jump_sound.play()
-                play_jump_sound = False
+            if music_on:
+                if play_jump_sound:
+                    jump_sound.play()
+                    play_jump_sound = False
 
             if self.jump_count >= -5.25:
                 self.current_jump_image = self.jumping_images[0]
@@ -367,10 +369,12 @@ while running:
             if 200 > arrow.x > 50:
                 if arrow.y == 600 and not player.jumping:
                     player.dying = True
-                    hit_sound.play()
+                    if music_on:
+                        hit_sound.play()
                 elif arrow.y == 555 and not player.rolling:
                     player.dying = True
-                    hit_sound.play()
+                    if music_on:
+                        hit_sound.play()
 
     elif player.dying:
         FPS = start_FPS
