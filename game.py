@@ -33,6 +33,7 @@ play_jump_sound = True
 hit_sound = pygame.mixer.Sound("music/hit_sound.wav")
 
 bg_music = pygame.mixer.music.load("music/music.mp3")
+pygame.mixer.music.set_volume(0.2)
 pygame.mixer.music.play(-1)  # -1 means that it will play the music infinitely
 
 
@@ -382,6 +383,7 @@ while running:
         arrow2_move = False
         arrow_list[0].x = win_width + arrow_list[0].width
         arrow_list[1].x = win_width + arrow_list[1].width
+        play_jump_sound = True
 
     elif player.standing:
         player.stand()
