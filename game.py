@@ -1,9 +1,10 @@
-#  tutorial 7 - music buttons, music pause and unpause
+#  tutorial 7 - music buttons, music pause and unpause + sound effects
 
 import pygame
 import time
 import random
 
+pygame.mixer.pre_init(44100, 16, 2, 4096)
 pygame.font.init()
 pygame.init()
 
@@ -26,6 +27,10 @@ FPS = 60
 
 score = 0
 score_text = None
+
+jump_sound = pygame.mixer.Sound("music/jump_sound.wav")
+play_jump_sound = True
+hit_sound = pygame.mixer.Sound("music/hit_sound.wav")
 
 bg_music = pygame.mixer.music.load("music/music.mp3")
 pygame.mixer.music.play(-1)  # -1 means that it will play the music infinitely
@@ -97,7 +102,12 @@ class Player(object):
             win.blit(self.rolling_images[self.roll_count // 5], (self.x, self.y))
 
     def jump(self):
+        global play_jump_sound
         if self.jumping:
+            if play_jump_sound:
+                jump_sound.play()
+                play_jump_sound = False
+
             if self.jump_count >= -5.25:
                 self.current_jump_image = self.jumping_images[0]
                 neg = 1
@@ -110,6 +120,7 @@ class Player(object):
                 self.jump_count = 5.25
                 self.jumping = False
                 self.running = True
+                play_jump_sound = True
 
             win.blit(self.current_jump_image, (self.x, self.y))
 
@@ -355,8 +366,10 @@ while running:
             if 200 > arrow.x > 50:
                 if arrow.y == 600 and not player.jumping:
                     player.dying = True
+                    hit_sound.play()
                 elif arrow.y == 555 and not player.rolling:
                     player.dying = True
+                    hit_sound.play()
 
     elif player.dying:
         FPS = start_FPS
