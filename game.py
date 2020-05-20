@@ -34,7 +34,7 @@ jump_sound.set_volume(0.3)
 hit_sound = pygame.mixer.Sound("music/hit_sound.wav")
 
 bg_music = pygame.mixer.music.load("music/music.mp3")
-pygame.mixer.music.set_volume(1.0)
+pygame.mixer.music.set_volume(0.2)
 pygame.mixer.music.play(-1)  # -1 means that it will play the music infinitely
 
 
@@ -285,9 +285,9 @@ arrow2_move = False
 arrow_list = [Obstacle(arrow_vel), Obstacle(arrow_vel)]
 
 # button variable
-start_button_x, start_button_y = win_width // 2 - 235 - 20, win_height // 2 - 65 - 20
-game_over_button_x, game_over_button_y = win_width // 2 - 175 - 20, win_height // 2 - 130 - 20
-music_button_x, music_button_y = win_width - 70 - 20, win_width // 2 - 10 - 20
+start_button_x, start_button_y = win_width // 2 - 255, win_height // 2 - 85
+game_over_button_x, game_over_button_y = win_width // 2 - 195, win_height // 2 - 150
+music_button_x, music_button_y = win_width - 90, win_width // 2 - 30
 
 start_button = Button(pygame.image.load("button/start_button.png").convert_alpha(),
                       start_button_x, start_button_y, True)
