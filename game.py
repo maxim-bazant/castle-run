@@ -34,7 +34,7 @@ jump_sound.set_volume(0.3)
 hit_sound = pygame.mixer.Sound("music/hit_sound.wav")
 
 bg_music = pygame.mixer.music.load("music/music.mp3")
-pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.set_volume(1.0)
 pygame.mixer.music.play(-1)  # -1 means that it will play the music infinitely
 
 
@@ -394,7 +394,6 @@ while running:
 
     #  button clicking checking
     if start_button.is_clicked():
-        #
         player.standing = False
         player.running = True
         player.y = win_height - player.height - 35
