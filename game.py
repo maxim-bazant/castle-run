@@ -356,14 +356,18 @@ while running:
         if arrow2_move:
             arrow_list[1].move_obstacle(arrow_vel)
 
+        #  score achievement
         if score == 5 and 550 < arrow_list[0].x < win_width // 2:
             arrow2_move = True
+
+        elif 0 < score < 30:
+            FPS = start_FPS + score
 
         elif score == 35:
             arrow_vel = 10
 
-        elif 0 < score < 30:
-            FPS = start_FPS + score
+        elif score == 50:
+            arrow_vel = 12
 
         #  collision detection for arrows
         for arrow in arrow_list:
