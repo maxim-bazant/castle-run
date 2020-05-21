@@ -8,7 +8,6 @@ pygame.mixer.pre_init(44100, 16, 2, 4096)
 pygame.font.init()
 pygame.init()
 
-pygame.mouse.set_cursor(*pygame.cursors.arrow)
 
 font_size = 60
 my_font = pygame.font.SysFont("Comic Sans", font_size)
@@ -28,6 +27,7 @@ FPS = 60
 score = 0
 score_text = None
 
+#  sounds
 jump_sound = pygame.mixer.Sound("music/jump_sound.wav")
 play_jump_sound = True
 jump_sound.set_volume(0.3)
@@ -269,6 +269,7 @@ layer_2 = Layer(pygame.image.load("layers/layer.png").convert_alpha())
 
 layer_vel = 5
 layer_2.x = layer_2.width
+
 # background variables
 background_1 = Layer(pygame.image.load("layers/background.png").convert())
 background_2 = Layer(pygame.image.load("layers/background.png").convert())
@@ -305,7 +306,7 @@ music_on = True
 button_down = False
 
 
-def music_play_and_stop():
+def music_play_or_stop():
     global music_on, button_down
     if pygame.mouse.get_pressed()[0] and not button_down and (music_on_button.is_clicked() or music_off_button.is_clicked()):
         music_on = not music_on
@@ -355,7 +356,7 @@ while running:
         if arrow2_move:
             arrow_list[1].move_obstacle(arrow_vel)
 
-        if score == 5 and 550 < arrow_list[0].x < 600:
+        if score == 5 and 550 < arrow_list[0].x < win_width // 2:
             arrow2_move = True
 
         elif score == 35:
@@ -366,7 +367,7 @@ while running:
 
         #  collision detection for arrows
         for arrow in arrow_list:
-            if 200 > arrow.x > 50:
+            if 200 > arrow.x > 50:  # if arrow.x is in front of or behind player
                 if arrow.y == 600 and not player.jumping:
                     player.dying = True
                     if music_on:
@@ -398,7 +399,7 @@ while running:
         player.running = True
         player.y = win_height - player.height - 35
 
-    music_play_and_stop()
+    music_play_or_stop()
 
     pygame.display.update()
     clock.tick(FPS)
