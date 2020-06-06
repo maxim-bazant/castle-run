@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c9358618-3b7d-4cf5-a5f9-8fa83a9e1fb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,6 +178,11 @@
       <workItem from="1589956217028" duration="4519000" />
       <workItem from="1589996382271" duration="4733000" />
       <workItem from="1590054382550" duration="1117000" />
+      <workItem from="1590090388232" duration="291000" />
+      <workItem from="1591198633731" duration="1072000" />
+      <workItem from="1591303730739" duration="618000" />
+      <workItem from="1591447535700" duration="138000" />
+      <workItem from="1591456952910" duration="350000" />
     </task>
     <task id="LOCAL-00085" summary="new images uploading and scaling">
       <created>1589576049179</created>
@@ -584,37 +588,37 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1590054199688" />
-    <state width="2517" height="752" key="GridCell.Tab.0.bottom" timestamp="1590057203133">
+    <state width="2517" height="264" key="GridCell.Tab.0.bottom" timestamp="1591447670641">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="400" key="GridCell.Tab.0.bottom/-3840.0.2560.1413/0.0.1920.1040@0.0.1920.1040" timestamp="1586586708812" />
     <state width="1877" height="399" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586722588157" />
     <state width="1877" height="400" key="GridCell.Tab.0.bottom/0.0.1920.1400/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586586649042" />
-    <state width="2517" height="752" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1590057203133" />
+    <state width="2517" height="264" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591447670641" />
     <state width="1877" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586586609351" />
-    <state width="2517" height="752" key="GridCell.Tab.0.center" timestamp="1590057203133">
+    <state width="2517" height="264" key="GridCell.Tab.0.center" timestamp="1591447670641">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="400" key="GridCell.Tab.0.center/-3840.0.2560.1413/0.0.1920.1040@0.0.1920.1040" timestamp="1586586708812" />
     <state width="1877" height="399" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586722588157" />
     <state width="1877" height="400" key="GridCell.Tab.0.center/0.0.1920.1400/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586586649041" />
-    <state width="2517" height="752" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1590057203133" />
+    <state width="2517" height="264" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591447670641" />
     <state width="1877" height="400" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586586609351" />
-    <state width="2517" height="752" key="GridCell.Tab.0.left" timestamp="1590057203133">
+    <state width="2517" height="264" key="GridCell.Tab.0.left" timestamp="1591447670640">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="400" key="GridCell.Tab.0.left/-3840.0.2560.1413/0.0.1920.1040@0.0.1920.1040" timestamp="1586586708812" />
     <state width="1877" height="399" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586722588156" />
     <state width="1877" height="400" key="GridCell.Tab.0.left/0.0.1920.1400/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586586649041" />
-    <state width="2517" height="752" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1590057203133" />
+    <state width="2517" height="264" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591447670640" />
     <state width="1877" height="400" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586586609351" />
-    <state width="2517" height="752" key="GridCell.Tab.0.right" timestamp="1590057203133">
+    <state width="2517" height="264" key="GridCell.Tab.0.right" timestamp="1591447670641">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="400" key="GridCell.Tab.0.right/-3840.0.2560.1413/0.0.1920.1040@0.0.1920.1040" timestamp="1586586708812" />
     <state width="1877" height="399" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586722588157" />
     <state width="1877" height="400" key="GridCell.Tab.0.right/0.0.1920.1400/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586586649042" />
-    <state width="2517" height="752" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1590057203133" />
+    <state width="2517" height="264" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591447670641" />
     <state width="1877" height="400" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586586609351" />
     <state x="249" y="123" key="MergeDialog" timestamp="1589813542197">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -647,6 +651,6 @@
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1589835268958" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/castle_run$Game.coverage" NAME="Game Coverage Results" MODIFIED="1590057121100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/castle_run$Game.coverage" NAME="Game Coverage Results" MODIFIED="1591447607505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
