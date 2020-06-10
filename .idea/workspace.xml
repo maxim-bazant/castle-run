@@ -1,8 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9358618-3b7d-4cf5-a5f9-8fa83a9e1fb5" name="Default Changelist" comment="">
+    <list default="true" id="c9358618-3b7d-4cf5-a5f9-8fa83a9e1fb5" name="Default Changelist" comment="Game DONE!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/button/game_over_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/button/music_off.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/button/music_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/button/start_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/button/start_button_brighter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/dying/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/jumping/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/jumping/02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/rolling/09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/running/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/standing/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/standing/02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/standing/03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/standing/04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/standing/05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/standing/06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/standing/07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character_animation/standing/08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/layer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/hit_sound.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/jump_sound.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/music.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obstacle/arrow.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +88,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Tutorial_04" />
+        <entry key="$PROJECT_DIR$" value="Tutorial_07" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -183,6 +234,10 @@
       <workItem from="1591303730739" duration="618000" />
       <workItem from="1591447535700" duration="138000" />
       <workItem from="1591456952910" duration="350000" />
+      <workItem from="1591704817729" duration="698000" />
+      <workItem from="1591734414372" duration="1470000" />
+      <workItem from="1591735946783" duration="174000" />
+      <workItem from="1591800049993" duration="1034000" />
     </task>
     <task id="LOCAL-00085" summary="new images uploading and scaling">
       <created>1589576049179</created>
@@ -574,11 +629,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1029" y="503" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1589896207740" />
-    <state x="671" y="392" width="1552" height="1007" key="CommitChangelistDialog2" timestamp="1590054607622">
+    <state x="671" y="392" width="1552" height="1007" key="CommitChangelistDialog2" timestamp="1591735408063">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="640" y="139" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586722595245" />
-    <state x="671" y="392" width="1552" height="1007" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1590054607622" />
+    <state x="671" y="392" width="1552" height="1007" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591735408063" />
     <state x="4498" y="54" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1587324678353" />
     <state x="250" y="123" key="DiffContextDialog" timestamp="1589277844530">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -588,37 +643,37 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1590054199688" />
-    <state width="2517" height="264" key="GridCell.Tab.0.bottom" timestamp="1591447670641">
+    <state width="2517" height="264" key="GridCell.Tab.0.bottom" timestamp="1591800669222">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="400" key="GridCell.Tab.0.bottom/-3840.0.2560.1413/0.0.1920.1040@0.0.1920.1040" timestamp="1586586708812" />
     <state width="1877" height="399" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586722588157" />
     <state width="1877" height="400" key="GridCell.Tab.0.bottom/0.0.1920.1400/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586586649042" />
-    <state width="2517" height="264" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591447670641" />
+    <state width="2517" height="264" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591800669222" />
     <state width="1877" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586586609351" />
-    <state width="2517" height="264" key="GridCell.Tab.0.center" timestamp="1591447670641">
+    <state width="2517" height="264" key="GridCell.Tab.0.center" timestamp="1591800669222">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="400" key="GridCell.Tab.0.center/-3840.0.2560.1413/0.0.1920.1040@0.0.1920.1040" timestamp="1586586708812" />
     <state width="1877" height="399" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586722588157" />
     <state width="1877" height="400" key="GridCell.Tab.0.center/0.0.1920.1400/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586586649041" />
-    <state width="2517" height="264" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591447670641" />
+    <state width="2517" height="264" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591800669222" />
     <state width="1877" height="400" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586586609351" />
-    <state width="2517" height="264" key="GridCell.Tab.0.left" timestamp="1591447670640">
+    <state width="2517" height="264" key="GridCell.Tab.0.left" timestamp="1591800669222">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="400" key="GridCell.Tab.0.left/-3840.0.2560.1413/0.0.1920.1040@0.0.1920.1040" timestamp="1586586708812" />
     <state width="1877" height="399" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586722588156" />
     <state width="1877" height="400" key="GridCell.Tab.0.left/0.0.1920.1400/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586586649041" />
-    <state width="2517" height="264" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591447670640" />
+    <state width="2517" height="264" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591800669222" />
     <state width="1877" height="400" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586586609351" />
-    <state width="2517" height="264" key="GridCell.Tab.0.right" timestamp="1591447670641">
+    <state width="2517" height="264" key="GridCell.Tab.0.right" timestamp="1591800669222">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="400" key="GridCell.Tab.0.right/-3840.0.2560.1413/0.0.1920.1040@0.0.1920.1040" timestamp="1586586708812" />
     <state width="1877" height="399" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586722588157" />
     <state width="1877" height="400" key="GridCell.Tab.0.right/0.0.1920.1400/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586586649042" />
-    <state width="2517" height="264" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591447670641" />
+    <state width="2517" height="264" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591800669222" />
     <state width="1877" height="400" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586586609351" />
     <state x="249" y="123" key="MergeDialog" timestamp="1589813542197">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -651,6 +706,6 @@
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1589835268958" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/castle_run$Game.coverage" NAME="Game Coverage Results" MODIFIED="1591447607505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/castle_run$Game.coverage" NAME="Game Coverage Results" MODIFIED="1591801086274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
