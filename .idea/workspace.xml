@@ -1,59 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9358618-3b7d-4cf5-a5f9-8fa83a9e1fb5" name="Default Changelist" comment="Game DONE!!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/button/game_over_button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/button/music_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/button/music_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/button/start_button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/button/start_button_brighter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/05.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/06.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/08.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/09.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/dying/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/jumping/01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/jumping/02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/05.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/06.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/08.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/rolling/09.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/05.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/06.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/08.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/09.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/running/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/standing/01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/standing/02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/standing/03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/standing/04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/standing/05.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/standing/06.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/standing/07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/character_animation/standing/08.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/layer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/hit_sound.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/jump_sound.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/music.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obstacle/arrow.png" beforeDir="false" />
+    <list default="true" id="c9358618-3b7d-4cf5-a5f9-8fa83a9e1fb5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,20 +187,7 @@
       <workItem from="1591734414372" duration="1470000" />
       <workItem from="1591735946783" duration="174000" />
       <workItem from="1591800049993" duration="1034000" />
-    </task>
-    <task id="LOCAL-00085" summary="new images uploading and scaling">
-      <created>1589576049179</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1589576049179</updated>
-    </task>
-    <task id="LOCAL-00086" summary="new images uploading and scaling">
-      <created>1589576090684</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1589576090684</updated>
+      <workItem from="1591805051631" duration="384000" />
     </task>
     <task id="LOCAL-00087" summary="double arrow">
       <created>1589624413161</created>
@@ -582,7 +518,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590054608958</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Game DONE!!">
+      <created>1591805190087</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1591805190088</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Game DONE!!">
+      <created>1591805209532</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1591805209532</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,12 +579,12 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1029" y="503" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1589896207740" />
-    <state x="671" y="392" width="1552" height="1007" key="CommitChangelistDialog2" timestamp="1591735408063">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="4498" y="54" width="1552" height="1007" key="CommitChangelistDialog2" timestamp="1591805208719">
+      <screen x="3840" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="139" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586722595245" />
     <state x="671" y="392" width="1552" height="1007" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.1920.1040@0.0.2560.1400" timestamp="1591735408063" />
-    <state x="4498" y="54" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1587324678353" />
+    <state x="4498" y="54" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.1920.1040@3840.0.1920.1040" timestamp="1591805208719" />
     <state x="250" y="123" key="DiffContextDialog" timestamp="1589277844530">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
