@@ -6,7 +6,7 @@ pygame.init()
 
 win_width, win_height = 600, 400
 win = pygame.display.set_mode((win_width, win_height))
-win_caption = pygame.display.set_caption("test1")
+win_caption = pygame.display.set_caption("castle run game")
 
 running = True
 
